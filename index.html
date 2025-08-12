@@ -456,6 +456,166 @@
         background-color: #999;
         opacity: 1;
       }
+      
+      /* Profile Picture Fix */
+      .profile-picture {
+        width: 200px !important;
+        height: 200px !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        border-radius: 50% !important;
+        display: block !important;
+        margin: 0 auto !important;
+        max-width: none !important;
+        max-height: none !important;
+        transform: none !important;
+        box-sizing: border-box !important;
+      }
+      
+      /* Override table constraints */
+      .profile-picture-container {
+        width: 200px !important;
+        height: 200px !important;
+        overflow: hidden !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      
+      .profile-picture-container img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        border-radius: 50% !important;
+        transform: none !important;
+        max-width: none !important;
+        max-height: none !important;
+        flex-shrink: 0 !important;
+        flex-grow: 0 !important;
+      }
+      
+      /* Force table cell to not constrain image */
+      .profile-picture-container {
+        min-width: 200px !important;
+        min-height: 200px !important;
+        width: 200px !important;
+        height: 200px !important;
+        overflow: hidden !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+      }
+      
+      /* Ensure the table cell doesn't force dimensions */
+      td:has(.profile-picture-container) {
+        width: auto !important;
+        min-width: 200px !important;
+        max-width: none !important;
+      }
+      
+      /* New flexbox layout for about section */
+      .about-section {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px 0;
+      }
+      
+      .about-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+        padding: 20px 0;
+      }
+      
+      .about-text {
+        flex: 1;
+        min-width: 0;
+      }
+      
+      /* Force square dimensions */
+      .profile-picture-container,
+      .profile-picture-container * {
+        aspect-ratio: 1 / 1 !important;
+      }
+      
+      .profile-picture-container {
+        flex-shrink: 0;
+        width: 280px !important;
+        height: 280px !important;
+        min-width: 280px !important;
+        min-height: 280px !important;
+        max-width: 280px !important;
+        max-height: 280px !important;
+        overflow: hidden;
+        border-radius: 12px;
+        display: block;
+        position: relative;
+        border: 3px solid var(--border-color);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        background-color: var(--bg-color);
+      }
+      
+      .profile-picture-container img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center 30% !important;
+        border-radius: 12px;
+        transform: none !important;
+        max-width: none !important;
+        max-height: none !important;
+        min-width: none !important;
+        min-height: none !important;
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .about-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        
+        .profile-picture-container {
+          order: -1;
+          margin-bottom: 20px;
+          width: 240px !important;
+          height: 240px !important;
+          min-width: 240px !important;
+          min-height: 240px !important;
+          max-width: 240px !important;
+          max-height: 240px !important;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .profile-picture-container {
+          width: 200px !important;
+          height: 200px !important;
+          min-width: 200px !important;
+          min-height: 200px !important;
+          max-width: 200px !important;
+          max-height: 200px !important;
+        }
+      }
+      
+      /* Global reset for images */
+      img {
+        max-width: none !important;
+        max-height: none !important;
+        transform: none !important;
+      }
     </style>
     <script>
       function toggleCourses(school) {
@@ -533,9 +693,9 @@
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
-          <table id="about" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
+          <div id="about" class="about-section">
+            <div class="about-content">
+              <div class="about-text">
                 <p class="name" style="text-align: center;">
                   Ishita Gupta
                 </p>
@@ -549,12 +709,14 @@
                   <a href="https://github.com/gupta-ish">Github</a> &nbsp;/&nbsp;
                   <a href="data/IshitaGupta_Robotics_AI_CMU_2025.pdf">Resume</a>
                 </p>
-              </td>
-              <td style="padding:2.5%;width:25%;max-width:30%">
-                <a href="images/profile_picture-ishita.png"><img style="width:100%;max-width:100%;object-fit: cover; object-position: center; border-radius: 50%; aspect-ratio: 1/1; transform: scale(1.4);" alt="profile photo" src="images/profile_picture-ishita.png" class="hoverZoomLink"></a>
-              </td>
-            </tr>
-          </tbody></table>
+              </div>
+              <div class="profile-picture-container">
+                <a href="images/profile_picture-ishita_new.jpg">
+                  <img alt="profile photo" src="images/profile_picture-ishita_new.jpg">
+                </a>
+              </div>
+            </div>
+          </div>
 
           <!-- Education Section -->
           <table id="education" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
