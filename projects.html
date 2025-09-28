@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Quotes - Ishita Gupta</title>
+    <title>More Projects - Ishita Gupta</title>
     <meta name="author" content="Ishita Gupta">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
@@ -11,21 +11,23 @@
       :root {
         --bg-color: #fafafa;
         --text-color: #333;
-        --quote-bg: #ffffff;
-        --border-color: #e0e0e0;
         --nav-bg: rgba(255, 255, 255, 0.95);
         --nav-hover: #f0f0f0;
+        --border-color: #e0e0e0;
         --link-color: #0066cc;
+        --highlight-bg: #ffffd0;
+        --table-bg: #ffffff;
       }
       
       [data-theme="dark"] {
         --bg-color: #1a1a1a;
         --text-color: #ffffff;
-        --quote-bg: #2d2d2d;
-        --border-color: #404040;
         --nav-bg: rgba(26, 26, 26, 0.95);
         --nav-hover: #404040;
+        --border-color: #404040;
         --link-color: #66b3ff;
+        --highlight-bg: #2d2d2d;
+        --table-bg: #2d2d2d;
       }
       
       body {
@@ -38,6 +40,7 @@
         scroll-behavior: smooth;
       }
       
+      /* Navigation Bar Styles */
       .nav-container {
         position: sticky;
         top: 0;
@@ -98,69 +101,22 @@
         transform: scale(1.05);
       }
       
-      .quote-container {
-        padding: 20px 0;
-        margin: 15px 0;
-        border-bottom: 1px solid var(--border-color);
-        transition: all 0.3s ease;
-      }
-      
-      .quote-container:hover {
-        border-bottom-color: var(--link-color);
-      }
-      
-      .quote-container:last-child {
-        border-bottom: none;
-      }
-      
-      .quote-text {
-        font-size: 16px;
-        font-style: italic;
-        color: var(--text-color);
-        line-height: 1.6;
-        margin-bottom: 12px;
-      }
-      
-      .quote-author {
-        font-size: 13px;
-        color: var(--text-color);
-        opacity: 0.7;
-        text-align: right;
-        font-weight: 500;
-      }
-      
-      .page-title {
-        text-align: center;
-        color: var(--text-color);
-        margin: 40px 0 10px 0;
-        font-size: 28px;
-        font-weight: 400;
-      }
-      
-      .subtitle {
-        text-align: center;
-        color: var(--text-color);
-        opacity: 0.7;
-        margin: 0 0 40px 0;
-        font-size: 16px;
-        font-style: italic;
-        font-weight: 300;
-      }
       
       .back-link {
-        text-align: center;
-        margin: 40px 0;
-      }
-      
-      .back-link a {
+        display: inline-block;
+        margin-bottom: 30px;
         color: var(--link-color);
         text-decoration: none;
         font-weight: 500;
-        transition: color 0.3s ease;
+        padding: 8px 16px;
+        border: 1px solid var(--link-color);
+        border-radius: 8px;
+        transition: all 0.3s ease;
       }
       
-      .back-link a:hover {
-        opacity: 0.8;
+      .back-link:hover {
+        background-color: var(--link-color);
+        color: white;
       }
     </style>
     <script>
@@ -198,52 +154,90 @@
       <nav class="navbar">
         <a href="index.html#about" class="nav-link">About</a>
         <a href="index.html#projects" class="nav-link">Projects</a>
-        <a href="index.html#experience" class="nav-link">Experience</a>
         <a href="index.html#education" class="nav-link">Education</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
         <a href="index.html#teaching" class="nav-link">Teaching</a>
-        <a href="quotes.html" class="nav-link active">Quotes</a>
+        <a href="quotes.html" class="nav-link">Quotes</a>
         <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
       </nav>
     </div>
 
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
-        <td style="padding:0px">
+        <td style="padding:20px">
           
-          <h1 class="page-title">Quotes</h1>
-          <p class="subtitle">a collection of quotes that i find inspiring ✨</p>
+          <a href="index.html" class="back-link">← Back to Main Portfolio</a>
           
+          <!-- Projects Section -->
+          <table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
+            <tr>
+              <td>
+                <h2>More Projects</h2>
+                <p style="color: var(--text-color); opacity: 0.8;">
+                  Additional course projects, research explorations, and technical work
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+          
+          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
-          
-          <div class="quote-container">
-            <div class="quote-text">
-              "The only way to do great work is to love what you do."
-            </div>
-            <div class="quote-author">— Steve Jobs</div>
-          </div>
-          
-          <div class="quote-container">
-            <div class="quote-text">
-              "It does not do to dwell on dreams and forget to live."
-            </div>
-            <div class="quote-author">— Albus Dumbledore</div>
-          </div>
-          
-          <div class="quote-container">
-            <div class="quote-text">
-              "It is our choices, Harry, that show what we truly are, far more than our abilities."
-            </div>
-            <div class="quote-author">— Albus Dumbledore</div>
-          </div>
-          
+            <!-- Robot Autonomy Motion Tracking Project -->
+            <tr>
+              <td style="padding:16px;width:60%;vertical-align:middle">
+                <img src='images/robot_autonomy_placeholder.png' width=100% alt="Robot Autonomy Motion Tracking">
+              </td>
+              <td style="padding:8px;width:40%;vertical-align:middle">
+                <a href="#">
+                  <span class="papertitle">Robot Autonomy Motion Tracking</span>
+                </a>
+                <br>
+                <em>CMU Robot Autonomy Course Project</em>, Fall 2024
+                <br>
+                <a href="#">project report</a>
+                /
+                <a href="#">code</a>
+                <p></p>
+                <p>
+                Developed advanced motion tracking algorithms for autonomous robot navigation in dynamic environments. Implemented particle filters and Kalman filtering techniques for robust state estimation and trajectory planning.
+                </p>
+              </td>
+            </tr>
 
-          
-          <div class="back-link">
-            <a href="index.html">← Back to Portfolio</a>
+            <!-- GenAI Paper Reviewing Project -->
+            <tr style="background-color: var(--highlight-bg);">
+              <td style="padding:16px;width:60%;vertical-align:middle">
+                <img src='images/genai_reviewing_placeholder.png' width=100% alt="GenAI Paper Reviewing">
+              </td>
+              <td style="padding:8px;width:40%;vertical-align:middle">
+                <a href="#">
+                  <span class="papertitle">GenAI Paper Reviewing & Analysis</span>
+                </a>
+                <br>
+                <em>CMU Generative AI Course Project</em>, Fall 2024
+                <br>
+                <a href="#">review paper</a>
+                /
+                <a href="#">analysis report</a>
+                <p></p>
+                <p>
+                Conducted comprehensive review and analysis of recent generative AI papers, focusing on diffusion models and their applications in robotics. Developed critical evaluation frameworks for assessing model performance and reproducibility.
+                </p>
+              </td>
+            </tr>
+
+
+          </tbody></table>
+
+          <!-- Footer -->
+          <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--border-color);">
+            <p style="color: var(--text-color); opacity: 0.6; font-size: 14px;">
+              Want to collaborate on a project? <a href="mailto:ishitag@cs.cmu.edu" style="color: var(--link-color);">Get in touch!</a>
+            </p>
           </div>
-          
+
         </td>
       </tr>
     </table>
   </body>
-</html> 
+</html>

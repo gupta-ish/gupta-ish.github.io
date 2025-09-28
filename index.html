@@ -9,614 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <style>
-      :root {
-        --bg-color: #fafafa;
-        --text-color: #333;
-        --nav-bg: rgba(255, 255, 255, 0.95);
-        --nav-hover: #f0f0f0;
-        --border-color: #e0e0e0;
-        --link-color: #0066cc;
-        --highlight-bg: #ffffd0;
-        --table-bg: #ffffff;
-      }
-      
-      [data-theme="dark"] {
-        --bg-color: #1a1a1a;
-        --text-color: #ffffff;
-        --nav-bg: rgba(26, 26, 26, 0.95);
-        --nav-hover: #404040;
-        --border-color: #404040;
-        --link-color: #66b3ff;
-        --highlight-bg: #2d2d2d;
-        --table-bg: #2d2d2d;
-      }
-      
-      body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-      
-      html {
-        scroll-behavior: smooth;
-      }
-      
-      /* Navigation Bar Styles */
-      .nav-container {
-        position: sticky;
-        top: 0;
-        background-color: var(--nav-bg);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--border-color);
-        z-index: 1000;
-        padding: 10px 0;
-      }
-      
-      .navbar {
-        max-width: 800px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-      
-      .nav-link {
-        text-decoration: none;
-        color: var(--text-color);
-        font-weight: 500;
-        font-size: 14px;
-        padding: 8px 12px;
-        border-radius: 6px;
-        transition: all 0.3s ease;
-      }
-      
-      .nav-link:hover {
-        background-color: var(--nav-hover);
-      }
-      
-      .nav-link.active {
-        background-color: var(--text-color);
-        color: var(--bg-color);
-      }
-      
-      .theme-toggle {
-        background: none;
-        border: 1px solid var(--border-color);
-        color: var(--text-color);
-        padding: 6px 12px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: all 0.3s ease;
-        margin-left: 15px;
-        opacity: 0.8;
-        backdrop-filter: blur(10px);
-      }
-      
-      .theme-toggle:hover {
-        background-color: var(--nav-hover);
-        border-color: var(--text-color);
-        opacity: 1;
-        transform: scale(1.05);
-      }
-      
-      /* Timeline Styles */
-      .timeline-container {
-        position: relative;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px 0;
-      }
-      
-      .timeline-item {
-        position: relative;
-        margin-bottom: 40px;
-        display: flex;
-        align-items: flex-start;
-      }
-      
-      .timeline-marker {
-        position: relative;
-        flex-shrink: 0;
-        width: 60px;
-        margin-right: 30px;
-        margin-top: 10px;
-      }
-      
-      .timeline-dot {
-        width: 16px;
-        height: 16px;
-        background-color: var(--link-color);
-        border-radius: 50%;
-        border: 3px solid var(--bg-color);
-        box-shadow: 0 0 0 3px var(--link-color);
-        z-index: 2;
-        position: relative;
-      }
-      
-      .timeline-line {
-        position: absolute;
-        left: 7px;
-        top: 16px;
-        width: 2px;
-        height: 60px;
-        background: linear-gradient(to bottom, var(--link-color), transparent);
-        opacity: 0.4;
-      }
-      
-      .timeline-item:last-child .timeline-line {
-        display: none;
-      }
-      
-      .timeline-year {
-        position: absolute;
-        left: 25px;
-        top: -5px;
-        background-color: var(--link-color);
-        color: white;
-        padding: 4px 8px;
-        border-radius: 12px;
-        font-size: 11px;
-        font-weight: 600;
-        white-space: nowrap;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      }
-      
-      .timeline-content {
-        flex: 1;
-        background-color: var(--table-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        padding: 30px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .timeline-content::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, var(--link-color), #66b3ff);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      
-      .timeline-content:hover {
-        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        transform: translateY(-3px);
-        border-color: var(--link-color);
-      }
-      
-      .timeline-content:hover::before {
-        opacity: 1;
-      }
-      
-      .timeline-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        gap: 20px;
-      }
-      
-      .company-logo {
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-        background-color: white;
-        padding: 8px;
-        border-radius: 8px;
-        border: 1px solid var(--border-color);
-        flex-shrink: 0;
-      }
-      
-      .timeline-title h3 {
-        margin: 0 0 8px 0;
-        color: var(--text-color);
-        font-size: 18px;
-        font-weight: 600;
-      }
-      
-      .timeline-subtitle {
-        margin: 0 0 8px 0;
-        color: var(--text-color);
-        opacity: 0.8;
-        font-size: 14px;
-        font-style: italic;
-      }
-      
-      .timeline-role {
-        margin: 0 0 4px 0;
-        color: var(--link-color);
-        font-weight: 500;
-        font-size: 16px;
-      }
-      
-      .timeline-duration {
-        margin: 0;
-        color: var(--text-color);
-        opacity: 0.7;
-        font-size: 14px;
-      }
-      
-      .timeline-body {
-        color: var(--text-color);
-        line-height: 1.6;
-      }
-      
-      /* Compact Experience Styles */
-      .experience-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 8px;
-      }
-      
-      .experience-time {
-        color: var(--link-color);
-        font-weight: 500;
-        font-size: 14px;
-        background-color: var(--bg-color);
-        padding: 4px 8px;
-        border-radius: 12px;
-        border: 1px solid var(--link-color);
-      }
-      
-      .experience-subtitle {
-        color: var(--text-color);
-        opacity: 0.7;
-        font-size: 13px;
-        font-style: italic;
-        margin: 4px 0 8px 0;
-      }
-      
-      .experience-toggle {
-        margin: 8px 0;
-      }
-      
-      .experience-toggle a {
-        color: var(--link-color);
-        text-decoration: none;
-        font-size: 13px;
-        font-weight: 500;
-        padding: 4px 8px;
-        border-radius: 6px;
-        transition: all 0.3s ease;
-      }
-      
-      .experience-toggle a:hover {
-        background-color: var(--link-color);
-        color: white;
-      }
-      
-      .experience-details {
-        margin-top: 12px;
-        padding: 12px;
-        background-color: var(--bg-color);
-        border-radius: 8px;
-        border-left: 3px solid var(--link-color);
-        font-size: 14px;
-        line-height: 1.5;
-      }
-      
-
-      
-      /* Card Styles */
-      .cards-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 25px;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px 0;
-      }
-      
-      .experience-card {
-        background-color: var(--table-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        padding: 25px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .experience-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, var(--link-color), #66b3ff);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      
-      .experience-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        border-color: var(--link-color);
-      }
-      
-      .experience-card:hover::before {
-        opacity: 1;
-      }
-      
-      .card-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        gap: 15px;
-      }
-      
-      .card-logo {
-        width: 50px;
-        height: 50px;
-        object-fit: contain;
-        background-color: white;
-        padding: 6px;
-        border-radius: 10px;
-        border: 1px solid var(--border-color);
-        flex-shrink: 0;
-      }
-      
-      .card-title h3 {
-        margin: 0 0 6px 0;
-        color: var(--text-color);
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 1.3;
-      }
-      
-      .card-subtitle {
-        margin: 0 0 6px 0;
-        color: var(--text-color);
-        opacity: 0.8;
-        font-size: 13px;
-        font-style: italic;
-      }
-      
-      .card-role {
-        margin: 0 0 3px 0;
-        color: var(--link-color);
-        font-weight: 500;
-        font-size: 14px;
-      }
-      
-      .card-duration {
-        margin: 0;
-        color: var(--text-color);
-        opacity: 0.7;
-        font-size: 12px;
-      }
-      
-      .card-body {
-        color: var(--text-color);
-        line-height: 1.6;
-        font-size: 14px;
-      }
-      
-      /* Slideshow Styles */
-      .slideshow-container {
-        position: relative;
-        width: 100%;
-      }
-      
-      .slideshow {
-        position: relative;
-        width: 100%;
-        height: 200px;
-        overflow: hidden;
-      }
-      
-      .slide {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: none;
-      }
-      
-      .slide.active {
-        display: block;
-      }
-      
-      .slide:nth-child(4) {
-        object-fit: contain;
-        transform: scale(0.8);
-      }
-      
-      .slideshow-dots {
-        text-align: center;
-        margin-top: 8px;
-      }
-      
-      .dot {
-        height: 6px;
-        width: 6px;
-        margin: 0 3px;
-        background-color: #ddd;
-        border-radius: 50%;
-        display: inline-block;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        opacity: 0.6;
-      }
-      
-      .dot.active, .dot:hover {
-        background-color: #999;
-        opacity: 1;
-      }
-      
-      /* Profile Picture Fix */
-      .profile-picture {
-        width: 200px !important;
-        height: 200px !important;
-        object-fit: cover !important;
-        object-position: center !important;
-        border-radius: 50% !important;
-        display: block !important;
-        margin: 0 auto !important;
-        max-width: none !important;
-        max-height: none !important;
-        transform: none !important;
-        box-sizing: border-box !important;
-      }
-      
-      /* Override table constraints */
-      .profile-picture-container {
-        width: 200px !important;
-        height: 200px !important;
-        overflow: hidden !important;
-        border-radius: 50% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-      }
-      
-      .profile-picture-container img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center !important;
-        border-radius: 50% !important;
-        transform: none !important;
-        max-width: none !important;
-        max-height: none !important;
-        flex-shrink: 0 !important;
-        flex-grow: 0 !important;
-      }
-      
-      /* Force table cell to not constrain image */
-      .profile-picture-container {
-        min-width: 200px !important;
-        min-height: 200px !important;
-        width: 200px !important;
-        height: 200px !important;
-        overflow: hidden !important;
-        border-radius: 50% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        position: relative !important;
-      }
-      
-      /* Ensure the table cell doesn't force dimensions */
-      td:has(.profile-picture-container) {
-        width: auto !important;
-        min-width: 200px !important;
-        max-width: none !important;
-      }
-      
-      /* New flexbox layout for about section */
-      .about-section {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px 0;
-      }
-      
-      .about-content {
-        display: flex;
-        align-items: flex-start;
-        gap: 40px;
-        padding: 20px 0;
-      }
-      
-      .about-text {
-        flex: 1;
-        min-width: 0;
-      }
-      
-      /* Force square dimensions */
-      .profile-picture-container,
-      .profile-picture-container * {
-        aspect-ratio: 1 / 1 !important;
-      }
-      
-      .profile-picture-container {
-        flex-shrink: 0;
-        width: 280px !important;
-        height: 280px !important;
-        min-width: 280px !important;
-        min-height: 280px !important;
-        max-width: 280px !important;
-        max-height: 280px !important;
-        overflow: hidden;
-        border-radius: 12px;
-        display: block;
-        position: relative;
-        border: 3px solid var(--border-color);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        box-sizing: border-box;
-        background-color: var(--bg-color);
-      }
-      
-      .profile-picture-container img {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center 30% !important;
-        border-radius: 12px;
-        transform: none !important;
-        max-width: none !important;
-        max-height: none !important;
-        min-width: none !important;
-        min-height: none !important;
-        display: block !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-      
-      /* Responsive design */
-      @media (max-width: 768px) {
-        .about-content {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
-        
-        .profile-picture-container {
-          order: -1;
-          margin-bottom: 20px;
-          width: 240px !important;
-          height: 240px !important;
-          min-width: 240px !important;
-          min-height: 240px !important;
-          max-width: 240px !important;
-          max-height: 240px !important;
-        }
-      }
-      
-      @media (max-width: 480px) {
-        .profile-picture-container {
-          width: 200px !important;
-          height: 200px !important;
-          min-width: 200px !important;
-          min-height: 200px !important;
-          max-width: 200px !important;
-          max-height: 200px !important;
-        }
-      }
-      
-      /* Global reset for images */
-      img {
-        max-width: none !important;
-        max-height: none !important;
-        transform: none !important;
-      }
-    </style>
     <script>
       function toggleCourses(school) {
         const shortSpan = document.getElementById(school + '-courses-short');
@@ -681,9 +73,9 @@
     <div class="nav-container">
       <nav class="navbar">
         <a href="#about" class="nav-link">About</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#experience" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Education</a>
         <a href="#teaching" class="nav-link">Teaching</a>
         <a href="quotes.html" class="nav-link">Quotes</a>
         <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
@@ -695,13 +87,15 @@
         <td style="padding:0px">
           <div id="about" class="about-section">
             <div class="about-content">
-              <div class="about-text">
+              <div style="padding:2.5%;width:63%;vertical-align:middle">
                 <p class="name" style="text-align: center;">
                   Ishita Gupta
                 </p>
                 <p>
-		I'm a Master's student in Robotic Systems Development (MRSD) at <a href="https://www.ri.cmu.edu/ri-people/ishita-gupta/" target="_blank">Carnegie Mellon University</a>, where I focus on robotics and deep learning. Previously, I worked as a Robotics Engineer at <a href="https://addverb.com/" target="_blank">Addverb</a> for 2.5 years, developing VSLAM systems, physics engine simulators, and multi-robot applications. I also interned at <a href="https://www.google.com/" target="_blank">Google</a> where I automated cloud infrastructure pipelines for the Nest Devices team.
-		My research interests include humanoid robotics, visual SLAM, reinforcement learning, and autonomous systems. I'm passionate about developing intelligent robotic systems that can operate in dynamic, real-world environments.
+                I'm a second-year Master's student in Robotic Systems Development (MRSD) at <a href="https://www.ri.cmu.edu/ri-people/ishita-gupta/" target="_blank">Carnegie Mellon University</a>, specializing in robotics and deep learning. Previously, I spent 2.5 years at <a href="https://addverb.com/" target="_blank">Addverb</a> as a Robotics Engineer, where I developed autonomous navigation systems, built physics-based simulators, and created multi-robot applications. I also interned at <a href="https://www.google.com/" target="_blank">Google</a>, automating cloud infrastructure pipelines for the Nest Devices team.
+                </p>
+                <p>
+                My research lies at the intersection of AI and robotics, with a focus on building physically intelligent systems: robots that can perceive, reason, and act in complex, dynamic environments. I'm particularly interested in humanoid robotics, embodied intelligence, and reinforcement learning, and in advancing how intelligent systems can move, adapt, and interact with the world in human-like ways.
                 </p>
                 <p style="text-align:center">
                   <a href="mailto:ishitag@cs.cmu.edu">Email</a> &nbsp;/&nbsp;
@@ -710,51 +104,182 @@
                   <a href="data/IshitaGupta_Robotics_AI_CMU_2025.pdf">Resume</a>
                 </p>
               </div>
-              <div class="profile-picture-container">
+              <div style="padding:2.5%;width:37%;max-width:37%;vertical-align:middle">
                 <a href="images/profile_picture-ishita_new.jpg">
-                  <img alt="profile photo" src="images/profile_picture-ishita_new.jpg">
+                  <img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/profile_picture-ishita_new.jpg" class="hoverZoomLink">
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Education Section -->
-          <table id="education" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
-            <tr>
-              <td>
-                <h2>Education</h2>
-              </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            
-                          <tr>
-                <td style="padding:16px;width:35%;vertical-align:middle">
-                  <img src='images/cmu_ri_logo.png' width="200" alt="CMU Robotics Institute Logo" style="background-color: white; padding: 5px; border-radius: 4px;">
+          <!-- Projects/Research Section -->
+          <table id="projects" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;">
+            <tbody>
+              <tr class="experience-row">
+                <td>
+                  <h2>Projects & Research</h2>
                 </td>
-              <td style="padding:8px;width:65%;vertical-align:middle">
-                <strong>Carnegie Mellon University</strong><br>
-                <em>Master of Science in Robotic Systems Development (MRSD)</em><br>
-                <strong>CGPA: 3.83</strong> | August 2024 - May 2026<br><br>
-                <strong>Coursework:</strong> <span id="cmu-courses-short">Deep Reinforcement Learning (10-703), Generative AI (10-623)</span><span id="cmu-courses-full" style="display:none;">Deep Reinforcement Learning (10-703), Generative AI (10-623), Deep Learning (11-785), Visual Learning and Recognition (16-824), Robot Mobility, Manipulation, Estimation & Controls, Systems Engineering, Robot Autonomy</span> <a href="#" onclick="toggleCourses('cmu'); return false;" id="cmu-toggle">Show more</a>
-              </td>
-            </tr>
-
-            <tr>
-                              <td style="padding:16px;width:35%;vertical-align:middle">
-                  <img src='images/lnmiit_logo.png' width="160" alt="LNMIIT Logo" style="background-color: white; padding: 5px; border-radius: 4px;">
+              </tr>
+            </tbody>
+          </table>
+          
+          <table style="width:100%; border:0; border-spacing:0px 15px; border-collapse:separate; margin:0 auto;">
+            <tbody>
+              
+              <!-- Project 1: Autonomous Humanoid (Highlighted) -->
+              <tr style="background-color: var(--highlight-bg);">
+                <td style="padding:20px; width:50%; vertical-align:top;">
+                  <video width="100%" height="100%" muted autoplay loop>
+                    <source src="images/capstone-demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
                 </td>
-              <td style="padding:8px;width:65%;vertical-align:middle">
-                <strong>The LNM Institute of Information Technology (LNMIIT)</strong><br>
-                <em>Bachelor of Technology (B.Tech) in Computer Science and Engineering</em><br>
-                August 2018 - July 2022<br><br>
-                <strong>Coursework:</strong> <span id="lnmiit-courses-short">Artificial Intelligence, NLP, Advanced Algorithms</span><span id="lnmiit-courses-full" style="display:none;">Probability & Statistics, Artificial Intelligence, NLP, GANs, Data Structures and Algorithms, Operating Systems, Computer Networks, Computer Architecture, Database Management Systems</span> <a href="#" onclick="toggleCourses('lnmiit'); return false;" id="lnmiit-toggle">Show more</a>
-              </td>
-            </tr>
-          </tbody></table>
+                <td style="padding:20px; width:50%; vertical-align:top;">
+                  <a href="https://mrsdprojects.ri.cmu.edu/2025teamf/">
+                    <span class="papertitle">Autonomous Humanoid Loco-Manipulation for Tote Logistics</span>
+                  </a>
+                  <br>
+                  <em>CMU MRSD Capstone Project</em>, 2024 - Present<br>
+                  <em>Collaboration with <a href="https://www.nissan-global.com/">Nissan</a> & <a href="https://www.fieldai.com/">Field AI</a></em>
+                  <br><br>
+                  <a href="https://mrsdprojects.ri.cmu.edu/2025teamf/">project page</a>
+                  /
+                  <a href="https://github.com/LeCAR-Lab/FALCON">code</a>
+                  <p>
+                    Developing an autonomous humanoid robot for warehouse tote manipulation using hybrid whole-body control, motion planning, and computer vision.
+                  </p>
+                </td>
+              </tr>
 
-                    <!-- Experience Section -->
-          <table id="experience" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
+              <!-- Project 2: Deepfake Detection -->
+              <tr>
+                <td style="padding:20px; width:55%; vertical-align:top;">
+                  <div class="slideshow-container">
+                    <div class="slideshow">
+                      <img src="images/Project 3x3 Template (1).png" class="slide active" alt="Deepfake Detection Slide 1">
+                      <img src="images/deepfake_slide2.png" class="slide" alt="Deepfake Detection Slide 2">
+                      <img src="images/Project 3x3 Template (2).png" class="slide" alt="Deepfake Detection Slide 3">
+                      <img src="images/Project 3x3 Template (3).png" class="slide" alt="Deepfake Detection Slide 4">
+                      <img src="images/Project 3x3 Template (4).png" class="slide" alt="Deepfake Detection Slide 5">
+                      <img src="images/Project 3x3 Template (5).png" class="slide" alt="Deepfake Detection Slide 6">
+                      <img src="images/deepfake_slide7.png" class="slide" alt="Deepfake Detection Slide 7">
+                    </div>
+                    <div class="slideshow-dots">
+                      <span class="dot active" onclick="currentSlide(1)"></span>
+                      <span class="dot" onclick="currentSlide(2)"></span>
+                      <span class="dot" onclick="currentSlide(3)"></span>
+                      <span class="dot" onclick="currentSlide(4)"></span>
+                      <span class="dot" onclick="currentSlide(5)"></span>
+                      <span class="dot" onclick="currentSlide(6)"></span>
+                      <span class="dot" onclick="currentSlide(7)"></span>
+                    </div>
+                  </div>
+                  <script type="text/javascript">
+                    let slideIndex = 0;
+                    showSlides();
+
+                    function showSlides() {
+                      let i;
+                      let slides = document.getElementsByClassName("slide");
+                      let dots = document.getElementsByClassName("dot");
+                      
+                      for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                        dots[i].className = dots[i].className.replace(" active", "");
+                      }
+                      
+                      slideIndex++;
+                      if (slideIndex > slides.length) {slideIndex = 1}
+                      
+                      slides[slideIndex-1].style.display = "block";
+                      dots[slideIndex-1].className += " active";
+                      
+                      setTimeout(showSlides, 3000); // Change image every 3 seconds
+                    }
+
+                    function currentSlide(n) {
+                      slideIndex = n - 1;
+                      showSlides();
+                    }
+                  </script>
+                </td>
+                <td style="padding:20px; width:45%; vertical-align:top;">
+                  <a href="https://drive.google.com/file/d/1Jy5OCdsznnzjH0dJPYrAUMNyVtGbqOpf/view?usp=sharing">
+                    <span class="papertitle">Detecting Lip-Syncing Deepfakes: Vision Temporal Transformer for Analyzing Mouth Inconsistencies</span>
+                  </a>
+                  <br>
+                  <em>CMU GenAI Course Project</em>, 2024<br><br>
+                  <a href="https://drive.google.com/file/d/1Jy5OCdsznnzjH0dJPYrAUMNyVtGbqOpf/view?usp=sharing">project report</a>
+                  <!-- /
+                  <a href="#">code</a> -->
+                  <!-- / -->
+                  <!-- <a href="images/deepfake_poster_full.jpg" target="_blank">poster</a> -->
+                  <p>
+                    Developed a Vision Temporal Transformer model to detect lip-syncing deepfakes by analyzing temporal inconsistencies in mouth movements. The model leverages attention mechanisms to capture both spatial and temporal relationships in video sequences, achieving improved accuracy in identifying synthetic media.
+                  </p>
+                </td>
+              </tr>
+
+              <!-- Project 3: LLM Self-Correction -->
+              <tr>
+                <td style="padding:20px; width:55%; vertical-align:top;">
+                  <img src="images/idl-project-img.png" width="100%" alt="LLM Self-Correction Project">
+                </td>
+                <td style="padding:20px; width:45%; vertical-align:top;">
+                  <a href="https://drive.google.com/file/d/13LuLqWW-G2UWbvJmGBN1NtVgKuoc1x2u/view">
+                    <span class="papertitle">Training Language Models to Self-Correct via Reinforcement Learning</span>
+                  </a>
+                  <br>
+                  <em>CMU Course Project</em>, 2024<br><br>
+                  <a href="https://drive.google.com/file/d/13LuLqWW-G2UWbvJmGBN1NtVgKuoc1x2u/view">project report</a>
+                  <!-- /
+                  <a href="#">code</a> -->
+                  <p>
+                    Led benchmarking of self-correction in LLMs, evaluating performance across Llama 3.2 1B, Llama 3.1 8B, and Mathstral 7B on MATH dataset. Achieved accuracy rates of up to 41.8%, identifying high Cor->Inc rates (46.9%) and low Inc->Cor improvement (3.78%). Engineered a multi-turn reinforcement learning framework (SCoRe) for fine-tuning.
+                  </p>
+                </td>
+              </tr>
+
+              <!-- Project 4: Music Segmentation (Highlighted) -->
+              <tr style="background-color: var(--highlight-bg);">
+                <td style="padding:12px; width:55%; vertical-align:top;">
+                  <img src="images/music-segmentation.png" width="100%" style="max-height: 150px; object-fit: cover;" alt="Music Segmentation Project">
+                </td>
+                <td style="padding:12px; width:45%; vertical-align:top;">
+                  <a href="#">
+                    <span class="papertitle">Indian Classical Music Segmentation Using Machine Learning</span>
+                  </a>
+                  <br>
+                  <em>LNMIIT B.Tech Project</em>, 2021 - 2022<br>
+                  <em>Advised by <a href="https://sakthibalan.in/" target="_blank">Prof. Dr. Sakthi Balan</a></em>
+                  <br><br>
+                  <a href="#">project page</a>
+                  <!-- / -->
+                  <!-- <a href="#">code</a> -->
+                  <p>
+                    Developed an onset detection technique to isolate the Percussion Solo section in concert audio, applying clustering algorithms (K-means, DBSCAN) using audio processing libraries.
+                  </p>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+          
+          <!-- Archive Projects Link -->
+          <div style="text-align: right; margin: 10px 0; padding-right: 20px;">
+            <a href="projects.html" style="
+              color: var(--text-color);
+              opacity: 0.7;
+              font-size: 13px;
+              text-decoration: none;
+              transition: opacity 0.3s ease;
+            " onmouseover="this.style.opacity='1';" onmouseout="this.style.opacity='0.7';">
+              archive projects →
+            </a>
+          </div>
+
+          <!-- Experience Section -->
+          <table id="experience" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;"><tbody>
             <tr>
               <td>
                 <h2>Industry Experience</h2>
@@ -762,41 +287,42 @@
             </tr>
           </tbody></table>
           
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table style="width:100%;border:0px;border-spacing:0px 5px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             
-            <tr>
-              <td style="padding:12px;width:25%;vertical-align:middle">
-                <img src='images/nissan-logo.png' width="120" alt="Nissan NATC-SV Logo" style="background-color: white; padding: 5px; border-radius: 4px;">
+            <tr class="experience-row">
+              <td style="padding:12px;width:35%;vertical-align:middle">
+                <img src='images/nissan-logo.png' width="160" height="90" alt="Nissan NATC-SV Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
               </td>
-              <td style="padding:8px;width:75%;vertical-align:middle">
+              <td style="padding:8px;width:65%;vertical-align:middle">
                 <div class="experience-header">
-                  <strong>Nissan Advanced Technology Center - Silicon Valley (NATC-SV)</strong>
+                  <strong>Nissan Advanced Technology Center - Silicon Valley</strong>
                   <span class="experience-time">May 2025 - August 2025</span>
                 </div>
                 <em>Robotics Research Intern</em>
+                <div class="experience-subtitle">Humanoid Robotics Team</div>
                 <div class="experience-toggle">
                   <a href="#" onclick="toggleExperience('nissan'); return false;" id="nissan-toggle">View Details</a>
                 </div>
-                                  <div id="nissan-details" class="experience-details" style="display:none;">
-                    <strong>Focus:</strong><br>
-                    • Developing autonomous manipulation and locomotion capabilities for the Unitree G1 humanoid robot to solve tote logistics challenges in Nissan manufacturing facilities.
-                    
-                    <!-- Detailed contributions (work in progress):
-                    • 3D diffusion policy: Implemented 3D diffusion policy for the unitree G1 robot for manipulation tasks.
-                    • NVIDIA Groot N1.5: Fine-tuned Groot VLA N 1.5 model for a new embodiment (the unitree G1 robot) and box pick-up task.
-                    • Reinforcement Learning: Trained RL policy to enable the robot to perform locomotion while carrying objects, squatting, bending and manipulating boxes.
-                    -->
-                  </div>
+                <div id="nissan-details" class="experience-details" style="display:none;">
+                  <strong>Focus:</strong><br>
+                  • Developing autonomous manipulation and locomotion capabilities for the Unitree G1 humanoid robot to solve tote logistics challenges in Nissan manufacturing facilities.
+                  
+                  <!-- Detailed contributions (work in progress):
+                  • 3D diffusion policy: Implemented 3D diffusion policy for the unitree G1 robot for manipulation tasks.
+                  • NVIDIA Groot N1.5: Fine-tuned Groot VLA N 1.5 model for a new embodiment (the unitree G1 robot) and box pick-up task.
+                  • Reinforcement Learning: Trained RL policy to enable the robot to perform locomotion while carrying objects, squatting, bending and manipulating boxes.
+                  -->
+                </div>
               </td>
             </tr>
 
-            <tr>
-              <td style="padding:12px;width:25%;vertical-align:middle">
-                <img src='images/addverb_logo.webp' width="120" alt="Addverb Technologies Logo">
+            <tr class="experience-row">
+              <td style="padding:12px;width:35%;vertical-align:middle">
+                <img src='images/addverb_logo.webp' width="160" height="90" alt="Addverb Technologies Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
               </td>
-              <td style="padding:8px;width:75%;vertical-align:middle">
+              <td style="padding:8px;width:65%;vertical-align:middle">
                 <div class="experience-header">
-                  <strong>Addverb</strong>
+                  <strong><a href="https://www.addverb.com/" target="_blank">Addverb</a></strong>
                   <span class="experience-time">January 2022 - July 2024</span>
                 </div>
                 <em>Robotics Engineer</em>
@@ -813,16 +339,17 @@
               </td>
             </tr>
 
-            <tr>
-              <td style="padding:12px;width:25%;vertical-align:middle">
-                <img src='images/Google_logo.png' width="120" alt="Google Logo">
+            <tr class="experience-row">
+              <td style="padding:12px;width:35%;vertical-align:middle">
+                <img src='images/Google_logo.png' width="160" height="90" alt="Google Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
               </td>
-              <td style="padding:8px;width:75%;vertical-align:middle">
+              <td style="padding:8px;width:65%;vertical-align:middle">
                 <div class="experience-header">
-                  <strong>Google Nest Devices Cloud</strong>
+                  <strong><a href="https://www.google.com/" target="_blank">Google</a></strong>
                   <span class="experience-time">May 2021 - August 2021</span>
                 </div>
                 <em>Software Engineering Intern</em>
+                <div class="experience-subtitle">Nest Devices, Cloud Infrastructure</div>
                 <div class="experience-toggle">
                   <a href="#" onclick="toggleExperience('google'); return false;" id="google-toggle">View Details</a>
                 </div>
@@ -834,260 +361,68 @@
               </td>
             </tr>
           </tbody></table>
+          
+          <div style="height: 20px;"></div>
 
-          <!-- Projects/Research Section -->
-          <table id="projects" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
-            <tr>
+          <!-- Education Section -->
+          <table id="education" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;"><tbody>
+            <tr class="experience-row">
               <td>
-                <h2>Projects & Research</h2>
+                <h2>Education</h2>
               </td>
             </tr>
           </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-    <tr style="background-color: var(--highlight-bg);">
-      <td style="padding:16px;width:45%;vertical-align:middle">
-        <div class="one">
-          <video width=100% height=100% muted autoplay loop>
-            <source src="images/capstone-demo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </td>
-              <td style="padding:8px;width:55%;vertical-align:middle">
-          <a href="https://mrsdprojects.ri.cmu.edu/2025teamf/">
-            <span class="papertitle">Autonomous Humanoid Loco-Manipulation for Tote Logistics</span>
-          </a>
-          <br>
-          <em>CMU MRSD Capstone Project</em>, 2024 - Present<br>
-          <em>Advised by <a href="https://www.gshi.me/" target="_blank">Prof. Guanya Shi</a></em><br>
-          <em>In collaboration with <a href="https://www.nissan-global.com/">Nissan</a> and <a href="https://www.fieldai.com/">Field AI</a></em>
-          <br>
-          <a href="https://mrsdprojects.ri.cmu.edu/2025teamf/">project page</a>
-          /
-          <a href="https://github.com/LeCAR-Lab/FALCON">code</a>
-          <p></p>
-          <p>
-          Developing an autonomous humanoid robot system integrating hybrid whole-body control, motion planning, and sensor fusion (RGBD & LiDAR) for precise tote manipulation and obstacle avoidance in dynamic warehouse environments.
-          </p>
-        </td>
-    </tr>
-
-    <tr>
-      <td style="padding:16px;width:45%;vertical-align:middle">
-        <div class="slideshow-container">
-          <div class="slideshow">
-            <img src='images/Project 3x3 Template (1).png' class="slide active" alt="Deepfake Detection Slide 1">
-            <img src='images/deepfake_slide2.png' class="slide" alt="Deepfake Detection Slide 2">
-            <img src='images/Project 3x3 Template (2).png' class="slide" alt="Deepfake Detection Slide 3">
-            <img src='images/Project 3x3 Template (3).png' class="slide" alt="Deepfake Detection Slide 4">
-            <img src='images/Project 3x3 Template (4).png' class="slide" alt="Deepfake Detection Slide 5">
-            <img src='images/Project 3x3 Template (5).png' class="slide" alt="Deepfake Detection Slide 6">
-            <img src='images/deepfake_slide7.png' class="slide" alt="Deepfake Detection Slide 7">
-          </div>
-          <div class="slideshow-dots">
-            <span class="dot active" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-            <span class="dot" onclick="currentSlide(5)"></span>
-            <span class="dot" onclick="currentSlide(6)"></span>
-            <span class="dot" onclick="currentSlide(7)"></span>
-          </div>
-        </div>
-        <script type="text/javascript">
-          let slideIndex = 0;
-          showSlides();
-
-          function showSlides() {
-            let i;
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("dot");
+          <table style="width:100%;border:0px;border-spacing:0px 5px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             
-            for (i = 0; i < slides.length; i++) {
-              slides[i].style.display = "none";
-              dots[i].className = dots[i].className.replace(" active", "");
-            }
-            
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}
-            
-            slides[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " active";
-            
-            setTimeout(showSlides, 3000); // Change image every 3 seconds
-          }
+                          <tr class="experience-row">
+                <td style="padding:12px;width:35%;vertical-align:middle">
+                  <img src='images/cmu-logo.jpg' width="160" alt="CMU Robotics Institute Logo" style="padding: 5px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                </td>
+              <td style="padding:8px;width:65%;vertical-align:middle">
+                <strong>Carnegie Mellon University</strong><br>
+                <em>Master of Science in Robotic Systems Development (MRSD)</em><br>
+                <strong>CGPA: 3.83</strong> | August 2024 - May 2026<br>
+                <strong>Coursework:</strong> <span id="cmu-courses-short">Deep Reinforcement Learning (10-703), Generative AI (10-623)</span><span id="cmu-courses-full" style="display:none;">Deep Reinforcement Learning (10-703), Generative AI (10-623), Introduction toDeep Learning (11-785), Learning for 3D Vision (16-825), Robot Mobility, Manipulation, Estimation & Controls, Systems Engineering, Robot Autonomy</span> <a href="#" onclick="toggleCourses('cmu'); return false;" id="cmu-toggle">Show more</a>
+              </td>
+            </tr>
 
-          function currentSlide(n) {
-            slideIndex = n - 1;
-            showSlides();
-          }
-        </script>
-      </td>
-      <td style="padding:8px;width:55%;vertical-align:middle">
-        <a href="https://drive.google.com/file/d/1Jy5OCdsznnzjH0dJPYrAUMNyVtGbqOpf/view?usp=sharing">
-          <span class="papertitle">Detecting Lip-Syncing Deepfakes: Vision Temporal Transformer for Analyzing Mouth Inconsistencies</span>
-        </a>
-        <br>
-        <em>CMU GenAI Course Project</em>, 2024
-        <br>
-        <a href="https://drive.google.com/file/d/1Jy5OCdsznnzjH0dJPYrAUMNyVtGbqOpf/view?usp=sharing">project report</a>
-        /
-        <a href="#">code</a>
-        /
-        <a href="images/deepfake_poster_full.jpg" target="_blank">poster</a>
-        <p></p>
-        <p>
-        Developed a Vision Temporal Transformer model to detect lip-syncing deepfakes by analyzing temporal inconsistencies in mouth movements. The model leverages attention mechanisms to capture both spatial and temporal relationships in video sequences, achieving improved accuracy in identifying synthetic media.
-        </p>
-      </td>
-    </tr>
-
-    <tr>
-      <td style="padding:16px;width:45%;vertical-align:middle">
-        <img src='images/idl-project-img.png' width=100%>
-      </td>
-      <td style="padding:8px;width:55%;vertical-align:middle">
-        <a href="https://drive.google.com/file/d/13LuLqWW-G2UWbvJmGBN1NtVgKuoc1x2u/view">
-          <span class="papertitle">Training Language Models to Self-Correct via Reinforcement Learning</span>
-        </a>
-        <br>
-        <em>CMU Course Project</em>, 2024
-        <br>
-        <a href="https://drive.google.com/file/d/13LuLqWW-G2UWbvJmGBN1NtVgKuoc1x2u/view">project report</a>
-        /
-        <a href="#">code</a>
-        <p></p>
-        <p>
-        Led benchmarking of self-correction in LLMs, evaluating performance across Llama 3.2 1B, Llama 3.1 8B, and Mathstral 7B on MATH dataset. Achieved accuracy rates of up to 41.8%, identifying high Cor->Inc rates (46.9%) and low Inc->Cor improvement (3.78%). Engineered a multi-turn reinforcement learning framework (SCoRe) for fine-tuning.
-        </p>
-      </td>
-    </tr>
-
-
-
-    <!-- <tr onmouseout="asr_stop()" onmouseover="asr_start()" bgcolor="#ffffd0">
-      <td style="padding:16px;width:35%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='asr_image'>
-            <img src='images/asr_after.jpg' width=100%>
-          </div>
-          <img src='images/asr_before.jpg' width=100%>
-        </div>
-        <script type="text/javascript">
-          function asr_start() {
-            document.getElementById('asr_image').style.opacity = "1";
-          }
-
-          function asr_stop() {
-            document.getElementById('asr_image').style.opacity = "0";
-          }
-          asr_stop()
-        </script>
-      </td>
-      <td style="padding:8px;width:65%;vertical-align:middle">
-        <a href="#">
-          <span class="papertitle">Automatic Speech Recognition using LSTM RNNs</span>
-        </a>
-        <br>
-        <strong>Ishita Gupta</strong>
-        <br>
-        <em>CMU Course Project</em>, 2024
-        <br>
-        <a href="#">project page</a>
-        /
-        <a href="#">code</a>
-        <p></p>
-        <p>
-        Created a phoneme recognition model with dynamic decoding (greedy and beam search), achieving a validation Levenshtein distance of 5 and validation loss of 0.31 for competitive phoneme sequence accuracy.
-        </p>
-      </td>
-    </tr> -->
-
-    <!-- <tr onmouseout="face_stop()" onmouseover="face_start()">
-      <td style="padding:16px;width:35%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='face_image'>
-            <img src='images/face_after.jpg' width=100%>
-          </div>
-          <img src='images/face_before.jpg' width=100%>
-        </div>
-        <script type="text/javascript">
-          function face_start() {
-            document.getElementById('face_image').style.opacity = "1";
-          }
-
-          function face_stop() {
-            document.getElementById('face_image').style.opacity = "0";
-          }
-          face_stop()
-        </script>
-      </td>
-      <td style="padding:8px;width:65%;vertical-align:middle">
-        <a href="#">
-          <span class="papertitle">Face Classification and Verification Using CNNs</span>
-        </a>
-        <br>
-        <strong>Ishita Gupta</strong>
-        <br>
-        <em>CMU Course Project</em>, 2024
-        <br>
-        <a href="#">project page</a>
-        /
-        <a href="#">code</a>
-        <p></p>
-        <p>
-        Implemented and trained CNN models (ResNet34, SEResNet etc.) for face classification and verification using techniques like Transforms and CutMix achieving an 11% Equal Error Rate and 90.6% Validation accuracy.
-        </p>
-      </td>
-    </tr> -->
-
-    <tr style="background-color: var(--highlight-bg);">
-      <td style="padding:16px;width:35%;vertical-align:middle">
-        <img src='images/music-segmentation.png' width=100%>
-      </td>
-      <td style="padding:8px;width:65%;vertical-align:middle">
-        <a href="#">
-          <span class="papertitle">Indian Classical Music Segmentation Using Machine Learning</span>
-        </a>
-        <br>
-        <em>LNMIIT B.Tech Project</em>, 2021 - 2022<br>
-        <em>Advised by <a href="https://sakthibalan.in/" target="_blank">Prof. Dr. Sakthi Balan</a></em>
-        <br>
-        <a href="#">project page</a>
-        /
-        <a href="#">code</a>
-        <p></p>
-        <p>
-        Developed an onset detection technique to isolate the Percussion Solo section in concert audio, applying clustering algorithms (K-means, DBSCAN) and leveraging Essentia and Librosa for audio processing.
-        </p>
-      </td>
-    </tr>
-
+            <tr class="experience-row">
+                              <td style="padding:12px;width:35%;vertical-align:middle">
+                  <img src='images/lnmiit_logo.png' width="160" alt="LNMIIT Logo" style="padding: 5px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                </td>
+              <td style="padding:8px;width:65%;vertical-align:middle">
+                <strong>The LNM Institute of Information Technology (LNMIIT)</strong><br>
+                <em>Bachelor of Technology (B.Tech) in Computer Science and Engineering</em><br>
+                August 2018 - July 2022<br>
+                <strong>Coursework:</strong> <span id="lnmiit-courses-short">Artificial Intelligence, NLP, Advanced Algorithms</span><span id="lnmiit-courses-full" style="display:none;">Probability & Statistics, Artificial Intelligence, NLP, GANs, Data Structures and Algorithms, Operating Systems, Computer Networks, Computer Architecture, Database Management Systems</span> <a href="#" onclick="toggleCourses('lnmiit'); return false;" id="lnmiit-toggle">Show more</a>
+              </td>
+            </tr>
           </tbody></table>
+          
+          <div style="height: 20px;"></div>
 
           <!-- Teaching Section -->
-          <table id="teaching" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
-            <tr>
+          <table id="teaching" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;"><tbody>
+            <tr class="experience-row">
               <td>
                 <h2>Teaching Experience</h2>
               </td>
             </tr>
           </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table style="width:100%;border:0px;border-spacing:0px 5px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             
-            <tr>
+            <tr class="experience-row">
               <td style="padding:16px;width:35%;vertical-align:middle">
-                <img src='images/cmu-lti-logo.png' width="240" alt="CMU LTI Logo">
+                <img src='images/cmu-lti-logo.png' width="180" alt="CMU LTI Logo" style="padding: 5px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
               </td>
-              <td style="padding:8px;width:65%;vertical-align:middle">
+              <td style="padding:12px;width:65%;vertical-align:middle">
                 <strong>Carnegie Mellon University</strong><br>
                 <em>Teaching Assistant - Introduction to Deep Learning (11-785)</em><br>
                 Spring 2025, Fall 2025<br>
                 <a href="https://deeplearning.cs.cmu.edu/F25/index.html#:~:text=Ishita%20Gupta%3A%20ishitag%40andrew.cmu.edu" target="_blank">Course Website</a> / <a href="https://www.youtube.com/@carnegiemellonuniversityde4339" target="_blank">YouTube Channel</a><br><br>
                 <strong>Responsibilities:</strong><br>
-                • Lead recitation sections and office hours for 200+ students<br>
-                • Grade assignments and provide detailed feedback on deep learning projects<br>
+                • Lead recitation sections and office hours for 300+ students<br>
+                • Mentor teams on Deep Learning projects<br>
                 • Assist in course development and curriculum refinement<br>
                 • Create educational content and recorded lectures for online learning
                 <!-- Add specific video links here:
@@ -1102,7 +437,7 @@
 
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
+            <tr class="experience-row">
               <td style="padding:0px">
                 <br>
                 <p style="text-align:right;font-size:small;">
