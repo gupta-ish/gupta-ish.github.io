@@ -103,7 +103,7 @@ h2 {
 }
 
 .name {
-  padding-top: 20px;
+  padding-top: 8px;
   margin: 0;
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 32px;
@@ -173,13 +173,13 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
-  line-height: 1.4;
+  line-height: 1.2;
   margin: 0;
   padding: 0;
 }
 
 p {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 p:last-child {
@@ -195,7 +195,7 @@ p:last-child {
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
   padding: 15px 0;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
 .navbar {
