@@ -73,8 +73,8 @@
     <div class="nav-container">
       <nav class="navbar">
         <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
         <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
         <a href="#education" class="nav-link">Education</a>
         <a href="#teaching" class="nav-link">Teaching</a>
         <a href="quotes.html" class="nav-link">Quotes</a>
@@ -132,11 +132,11 @@
             </div>
             <div class="news-item">
               <span class="news-date">Aug 2025</span>
-              <span>Completed my summer internship at <a href="https://www.nissan-global.com/EN/INNOVATION/TECHNOLOGY/ADVANCED_TECH_CENTER/" target="_blank">Nissan Advanced Technology Center</a> in the Bay Area, focusing on Humanoid Robotics and fine-tuning robotic foundation models. 🚀</span>
+              <span>Completed my summer internship at <a href="https://www.nissan-global.com/EN/INNOVATION/TECHNOLOGY/ADVANCED_TECH_CENTER/" target="_blank">Nissan Advanced Technology Center</a> in the Bay Area, focusing on Humanoid Robotics and fine-tuning robotic foundation models. 🌁 </span>
             </div>
             <div class="news-item">
               <span class="news-date">Apr 2025</span>
-              <span><a href="https://www.youtube.com/watch?v=8D-E4PJrCck" target="_blank">Demonstrated</a> our Autonomous Humanoid Loco-Manipulation for Tote Logistics Capstone Project. 📦</span>
+              <span><a href="https://www.youtube.com/watch?v=8D-E4PJrCck" target="_blank">Demonstrated</a> our Autonomous Humanoid Loco-Manipulation for Tote Logistics Capstone Project. 📦 🦾</span>
             </div>
             <div class = "news-item">
               <span class="news-date">Mar 2025</span>
@@ -159,6 +159,92 @@
               <span>Completed my internship at <a href="https://www.google.com/" target="_blank">Google</a> as a Software Engineering Intern. </span>
             </div>
           </div>          
+          <!-- Experience Section -->
+          <table id="experience" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;"><tbody>
+            <tr>
+              <td>
+                <h2>Industry Experience</h2>
+              </td>
+            </tr>
+          </tbody></table>
+          
+          <table style="width:100%;border:0px;border-spacing:0px 5px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            
+            <tr class="experience-row">
+              <td style="padding:12px;width:35%;vertical-align:middle">
+                <img src='images/nissan-logo.png' width="160" height="90" alt="Nissan NATC-SV Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+              </td>
+              <td style="padding:8px;width:65%;vertical-align:middle">
+                <div class="experience-header">
+                  <strong><a href="https://www.nissan-global.com/EN/INNOVATION/TECHNOLOGY/ADVANCED_TECH_CENTER/" target="_blank">Nissan Advanced Technology Center - Silicon Valley</a></strong>
+                  <span class="experience-time">May 2025 - August 2025</span>
+                </div>
+                <em>Robotics Research Intern</em>
+                <div class="experience-subtitle">Humanoid Robotics Team</div>
+                <div class="experience-toggle">
+                  <a href="#" onclick="toggleExperience('nissan'); return false;" id="nissan-toggle">View Details</a>
+                </div>
+                <div id="nissan-details" class="experience-details" style="display:none;">
+                  <strong>Focus:</strong><br>
+                  • Developing autonomous manipulation and locomotion capabilities for the Unitree G1 humanoid robot to solve tote logistics challenges in Nissan manufacturing facilities.
+                  
+                  <!-- Detailed contributions (work in progress):
+                  • 3D diffusion policy: Implemented 3D diffusion policy for the unitree G1 robot for manipulation tasks.
+                  • NVIDIA Groot N1.5: Fine-tuned Groot VLA N 1.5 model for a new embodiment (the unitree G1 robot) and box pick-up task.
+                  • Reinforcement Learning: Trained RL policy to enable the robot to perform locomotion while carrying objects, squatting, bending and manipulating boxes.
+                  -->
+                </div>
+              </td>
+            </tr>
+
+            <tr class="experience-row">
+              <td style="padding:12px;width:35%;vertical-align:middle">
+                <img src='images/addverb_logo.webp' width="160" height="90" alt="Addverb Technologies Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+              </td>
+              <td style="padding:8px;width:65%;vertical-align:middle">
+                <div class="experience-header">
+                  <strong><a href="https://www.addverb.com/" target="_blank">Addverb</a></strong>
+                  <span class="experience-time">January 2022 - July 2024</span>
+                </div>
+                <em>Robotics Engineer</em>
+                <div class="experience-subtitle">Advanced Robotics & Industrial Automation</div>
+                <div class="experience-toggle">
+                  <a href="#" onclick="toggleExperience('addverb'); return false;" id="addverb-toggle">View Details</a>
+                </div>
+                <div id="addverb-details" class="experience-details" style="display:none;">
+                  <strong>Key Contributions:</strong><br>
+                  • <strong>VSLAM Development:</strong> Built complete Visual SLAM system for quadruped robots using C++ and OpenCV<br>
+                  • <strong>Simulator Engineering:</strong> Developed robotics simulator with OpenGL and NVIDIA PhysX, integrated haptic feedback<br>
+                  • <strong>Multi-Robot Applications:</strong> Created GUI for 3 robotic systems (Cobot, Exoskeleton, Haptic device) using ImGui
+                </div>
+              </td>
+            </tr>
+
+            <tr class="experience-row">
+              <td style="padding:12px;width:35%;vertical-align:middle">
+                <img src='images/Google_logo.png' width="160" height="90" alt="Google Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+              </td>
+              <td style="padding:8px;width:65%;vertical-align:middle">
+                <div class="experience-header">
+                  <strong><a href="https://www.google.com/" target="_blank">Google</a></strong>
+                  <span class="experience-time">May 2021 - August 2021</span>
+                </div>
+                <em>Software Engineering Intern</em>
+                <div class="experience-subtitle">Nest Devices, Cloud Infrastructure</div>
+                <div class="experience-toggle">
+                  <a href="#" onclick="toggleExperience('google'); return false;" id="google-toggle">View Details</a>
+                </div>
+                <div id="google-details" class="experience-details" style="display:none;">
+                  <strong>Key Achievement:</strong><br>
+                  • <strong>Infrastructure Automation:</strong> Automated backend cloud pipeline, reducing 4-month task by 4-5 engineers to a single Bash script<br>
+                  • <strong>Onboarding System:</strong> Built end-to-end infrastructure generating 1,000+ lines of code across 150 files using Python, JSON, Go, Bash
+                </div>
+              </td>
+            </tr>
+          </tbody></table>
+          
+          <div style="height: 20px;"></div>
+
           <!-- Projects/Research Section -->
           <table id="projects" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;">
             <tbody>
@@ -325,92 +411,6 @@
               archive projects →
             </a>
           </div>
-
-          <!-- Experience Section -->
-          <table id="experience" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;"><tbody>
-            <tr>
-              <td>
-                <h2>Industry Experience</h2>
-              </td>
-            </tr>
-          </tbody></table>
-          
-          <table style="width:100%;border:0px;border-spacing:0px 5px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            
-            <tr class="experience-row">
-              <td style="padding:12px;width:35%;vertical-align:middle">
-                <img src='images/nissan-logo.png' width="160" height="90" alt="Nissan NATC-SV Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-              </td>
-              <td style="padding:8px;width:65%;vertical-align:middle">
-                <div class="experience-header">
-                  <strong><a href="https://www.nissan-global.com/EN/INNOVATION/TECHNOLOGY/ADVANCED_TECH_CENTER/" target="_blank">Nissan Advanced Technology Center - Silicon Valley</a></strong>
-                  <span class="experience-time">May 2025 - August 2025</span>
-                </div>
-                <em>Robotics Research Intern</em>
-                <div class="experience-subtitle">Humanoid Robotics Team</div>
-                <div class="experience-toggle">
-                  <a href="#" onclick="toggleExperience('nissan'); return false;" id="nissan-toggle">View Details</a>
-                </div>
-                <div id="nissan-details" class="experience-details" style="display:none;">
-                  <strong>Focus:</strong><br>
-                  • Developing autonomous manipulation and locomotion capabilities for the Unitree G1 humanoid robot to solve tote logistics challenges in Nissan manufacturing facilities.
-                  
-                  <!-- Detailed contributions (work in progress):
-                  • 3D diffusion policy: Implemented 3D diffusion policy for the unitree G1 robot for manipulation tasks.
-                  • NVIDIA Groot N1.5: Fine-tuned Groot VLA N 1.5 model for a new embodiment (the unitree G1 robot) and box pick-up task.
-                  • Reinforcement Learning: Trained RL policy to enable the robot to perform locomotion while carrying objects, squatting, bending and manipulating boxes.
-                  -->
-                </div>
-              </td>
-            </tr>
-
-            <tr class="experience-row">
-              <td style="padding:12px;width:35%;vertical-align:middle">
-                <img src='images/addverb_logo.webp' width="160" height="90" alt="Addverb Technologies Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-              </td>
-              <td style="padding:8px;width:65%;vertical-align:middle">
-                <div class="experience-header">
-                  <strong><a href="https://www.addverb.com/" target="_blank">Addverb</a></strong>
-                  <span class="experience-time">January 2022 - July 2024</span>
-                </div>
-                <em>Robotics Engineer</em>
-                <div class="experience-subtitle">Advanced Robotics & Industrial Automation</div>
-                <div class="experience-toggle">
-                  <a href="#" onclick="toggleExperience('addverb'); return false;" id="addverb-toggle">View Details</a>
-                </div>
-                <div id="addverb-details" class="experience-details" style="display:none;">
-                  <strong>Key Contributions:</strong><br>
-                  • <strong>VSLAM Development:</strong> Built complete Visual SLAM system for quadruped robots using C++ and OpenCV<br>
-                  • <strong>Simulator Engineering:</strong> Developed robotics simulator with OpenGL and NVIDIA PhysX, integrated haptic feedback<br>
-                  • <strong>Multi-Robot Applications:</strong> Created GUI for 3 robotic systems (Cobot, Exoskeleton, Haptic device) using ImGui
-                </div>
-              </td>
-            </tr>
-
-            <tr class="experience-row">
-              <td style="padding:12px;width:35%;vertical-align:middle">
-                <img src='images/Google_logo.png' width="160" height="90" alt="Google Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-              </td>
-              <td style="padding:8px;width:65%;vertical-align:middle">
-                <div class="experience-header">
-                  <strong><a href="https://www.google.com/" target="_blank">Google</a></strong>
-                  <span class="experience-time">May 2021 - August 2021</span>
-                </div>
-                <em>Software Engineering Intern</em>
-                <div class="experience-subtitle">Nest Devices, Cloud Infrastructure</div>
-                <div class="experience-toggle">
-                  <a href="#" onclick="toggleExperience('google'); return false;" id="google-toggle">View Details</a>
-                </div>
-                <div id="google-details" class="experience-details" style="display:none;">
-                  <strong>Key Achievement:</strong><br>
-                  • <strong>Infrastructure Automation:</strong> Automated backend cloud pipeline, reducing 4-month task by 4-5 engineers to a single Bash script<br>
-                  • <strong>Onboarding System:</strong> Built end-to-end infrastructure generating 1,000+ lines of code across 150 files using Python, JSON, Go, Bash
-                </div>
-              </td>
-            </tr>
-          </tbody></table>
-          
-          <div style="height: 20px;"></div>
 
           <!-- Education Section -->
           <table id="education" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;"><tbody>
