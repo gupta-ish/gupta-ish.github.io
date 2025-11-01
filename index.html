@@ -73,6 +73,7 @@
     <div class="nav-container">
       <nav class="navbar">
         <a href="#about" class="nav-link">About</a>
+        <a href="#publications" class="nav-link">Publications</a>
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#education" class="nav-link">Education</a>
@@ -95,7 +96,8 @@
                 I'm a second-year Master's student in Robotic Systems Development (MRSD) at <a href="https://www.ri.cmu.edu/ri-people/ishita-gupta/" target="_blank">Carnegie Mellon University</a>, specializing in Robotics and Deep Learning. Previously, I was at <a href="https://addverb.ai/" target="_blank">Addverb</a> for 2.5 years, where I engineered autonomous navigation systems, physics-based simulators, and multi-robot applications. I also interned at <a href="https://www.google.com/" target="_blank">Google</a> on the Nest Devices team, automating cloud infrastructure pipelines.
                 </p>
                 <p>
-                My research focuses on embodied AI: building physically intelligent systems that perceive, reason, and act in complex, dynamic environments. I'm especially interested in <span class="highlight">Humanoid Robotics</span> and <span class="highlight">Reinforcement Learning</span>, exploring how robots can achieve reliable, human-like motion and interaction with the world.
+                <!-- My research focuses on embodied AI: building physically intelligent systems that perceive, reason, and act in complex, dynamic environments. I'm especially interested in <span class="highlight">Humanoid Robotics</span> and <span class="highlight">Reinforcement Learning</span>, exploring how robots can achieve reliable, human-like motion and interaction with the world. -->
+                I'm passionate about building intelligent systems that perceive, reason, and act in complex, dynamic environments. My focus is on Deep Learning, and I am currently working with 3D Vision and Vision-Language Agents (VLAs). I'm especially interested in tackling complex, long-horizon planning problems, with applications for robotics and the broader AI landscape.
                 </p>
                 <p style="text-align:center">
                   <a href="mailto:ishitag@cs.cmu.edu">Email</a> &nbsp;/&nbsp;
@@ -159,6 +161,50 @@
               <span>Completed my internship at <a href="https://www.google.com/" target="_blank">Google</a> as a Software Engineering Intern. </span>
             </div>
           </div>          
+          
+          <!-- Publications Section -->
+          <table id="publications" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;">
+            <tbody>
+              <tr>
+                <td>
+                  <h2>Publications</h2>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <table style="width:100%; border:0; border-spacing:0px 15px; border-collapse:separate; margin:0 auto;">
+            <tbody>
+              <!-- FALCON Paper (Highlighted) -->
+              <tr style="background-color: var(--highlight-bg);">
+                <td style="padding:20px; width:50%; vertical-align:top;">
+                  <img src="images/falcon_demo.gif" style="width: 100%; border-radius: 4px;" alt="FALCON Demo">
+                </td>
+                <td style="padding:20px; width:50%; vertical-align:top;">
+                  <a href="https://lecar-lab.github.io/falcon-humanoid/">
+                    <span class="papertitle">FALCON: Learning Force-Adaptive Humanoid Loco-Manipulation</span>
+                  </a>
+                  <br>
+                  <!-- Yuanhang Zhang, Yifu Yuan, Prajwal Gurunath, Tairan He, <strong>Ishita Gupta</strong>, Shayegan Omidshafiei, Ali-akbar Agha-mohammadi, Marcell Vazquez-Chanlatte, Liam Pedersen, Guanya Shi -->
+                  Yuanhang Zhang, Yifu Yuan, Prajwal Gurunath, Tairan He, <strong>Ishita Gupta</strong>, et al., Guanya Shi
+                  <br>
+                  <em>In submission</em>
+                  <br><br>
+                  <a href="https://lecar-lab.github.io/falcon-humanoid/">project page</a>
+                  /
+                  <a href="https://lecar-lab.github.io/falcon-humanoid/">paper</a>
+                  /
+                  <a href="https://github.com/LeCAR-Lab/FALCON">code</a>
+                  <p>
+                    <strong>TL;DR:</strong> FALCON enables various heavy-duty humanoid loco-manipulation tasks via a new dual-agent force-adaptive RL framework.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div style="height: 20px;"></div>
+
           <!-- Experience Section -->
           <table id="experience" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;"><tbody>
             <tr>
@@ -261,32 +307,34 @@
               
               <!-- Project 1: Autonomous Humanoid (Highlighted) -->
               <tr style="background-color: var(--highlight-bg);">
-                <td style="padding:20px; width:50%; vertical-align:top;">
+                <td style="padding:20px; width:45%; vertical-align:top;">
                   <video width="100%" height="100%" muted autoplay loop>
                     <source src="images/capstone-demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                   </video>
                 </td>
-                <td style="padding:20px; width:50%; vertical-align:top;">
+                <td style="padding:20px; width:45%; vertical-align:top;">
                   <a href="https://mrsdprojects.ri.cmu.edu/2025teamf/">
                     <span class="papertitle">Autonomous Humanoid Loco-Manipulation for Tote Logistics</span>
                   </a>
                   <br>
                   <em>CMU MRSD Capstone Project</em>, 2024 - Present<br>
-                  <em>Collaboration with <a href="https://www.nissan-global.com/">Nissan</a> & <a href="https://www.fieldai.com/">Field AI</a></em>
+                  <em>Sponsored by <a href="https://www.nissan-global.com/">Nissan</a> & <a href="https://www.fieldai.com/">Field AI</a></em>
+                  <br>
+                  <em>Advised by <a href="https://www.gshi.me/">Prof. Guanya Shi</a></em>
                   <br><br>
                   <a href="https://mrsdprojects.ri.cmu.edu/2025teamf/">project page</a>
                   /
                   <a href="https://github.com/LeCAR-Lab/FALCON">code</a>
                   <p>
-                    Developing an autonomous humanoid robot for warehouse tote manipulation using hybrid whole-body control, motion planning, and computer vision.
+                    Built an autonomy system that fuses 6D pose estimation (NVIDIA FoundationPose) with motion-capture localization for precise perception and navigation. This allowed the Unitree G1 to autonomously manipulate totes and operate effectively in real-world factory workflows.
                   </p>
                 </td>
               </tr>
 
               <!-- Project 3: LLM Self-Correction -->
               <tr>
-                <td style="padding:20px; width:55%; vertical-align:top;">
+                <td style="padding:20px; width:45%; vertical-align:top;">
                   <img src="images/idl-project-img.png" width="100%" alt="LLM Self-Correction Project">
                 </td>
                 <td style="padding:20px; width:45%; vertical-align:top;">
@@ -306,7 +354,7 @@
 
               <!-- Project 2: Deepfake Detection -->
               <tr>
-                <td style="padding:20px; width:55%; vertical-align:top;">
+                <td style="padding:20px; width:45%; vertical-align:top;">
                   <div class="slideshow-container">
                     <div class="slideshow">
                       <img src="images/Project 3x3 Template (1).png" class="slide active" alt="Deepfake Detection Slide 1">
@@ -358,17 +406,19 @@
                 </td>
                 <td style="padding:20px; width:45%; vertical-align:top;">
                   <a href="https://drive.google.com/file/d/1Jy5OCdsznnzjH0dJPYrAUMNyVtGbqOpf/view?usp=sharing">
-                    <span class="papertitle">Detecting Lip-Syncing Deepfakes: Vision Temporal Transformer for Analyzing Mouth Inconsistencies</span>
+                    <span class="papertitle">Spatio-Temporal Transformer for Video Anomaly Detection</span>
                   </a>
                   <br>
-                  <em>CMU GenAI Course Project</em>, 2024<br><br>
+                  <em>CMU </em>, Spring 2024<br><br>
                   <a href="https://drive.google.com/file/d/1Jy5OCdsznnzjH0dJPYrAUMNyVtGbqOpf/view?usp=sharing">project report</a>
                   <!-- /
                   <a href="#">code</a> -->
                   <!-- / -->
                   <!-- <a href="images/deepfake_poster_full.jpg" target="_blank">poster</a> -->
                   <p>
-                    Developed a Vision Temporal Transformer model to detect lip-syncing deepfakes by analyzing temporal inconsistencies in mouth movements. The model leverages attention mechanisms to capture both spatial and temporal relationships in video sequences, achieving improved accuracy in identifying synthetic media.
+                    <!-- Engineered a Vision Temporal Transformer model from scratch to detect complex lip-syncing deepfakes by analyzing temporal inconsistencies in mouth movements. The model leverages attention mechanisms to capture both spatial and temporal relationships in video sequences, achieving improved accuracy in identifying synthetic media. -->
+                    <!-- Re-implemented the LIPINC-V2 Vision Temporal Transformer to detect deepfakes by analyzing spatio-temporal video data. I validated the from-scratch model by reproducing the paper's <strong>0.98 AP</strong> SOTA results. To address data gaps, I engineered a new 2,300-sample dataset, which revealed a critical generalization gap: a simple CNN-LSTM baseline (94.9% Acc) significantly outperformed the SOTA transformer, providing deep insight into dataset bias. -->
+                    Re-implemented the LIPINC-V2 Vision Temporal Transformer, a SOTA architecture for detecting deepfakes by analyzing spatio-temporal video. I first validated my from-scratch model by reproducing the paper's 0.98 AP results on the LipSyncTIMIT benchmark. To expand the project, I then engineered a custom data generation pipeline, creating a new 2,300-sample dataset. On this new dataset, I established a strong CNN-LSTM baseline model, achieving 94.9% accuracy.
                   </p>
                 </td>
               </tr>
@@ -376,10 +426,10 @@
               
               <!-- Project 4: Music Segmentation (Highlighted) -->
               <tr style="background-color: var(--highlight-bg);">
-                <td style="padding:12px; width:55%; vertical-align:top;">
+                <td style="padding:20px; width:45%; vertical-align:top;">
                   <img src="images/music-segmentation.png" width="100%" style="max-height: 150px; object-fit: cover;" alt="Music Segmentation Project">
                 </td>
-                <td style="padding:12px; width:45%; vertical-align:top;">
+                <td style="padding:20px; width:45%; vertical-align:top;">
                   <a href="#">
                     <span class="papertitle">Indian Classical Music Segmentation Using Machine Learning</span>
                   </a>
