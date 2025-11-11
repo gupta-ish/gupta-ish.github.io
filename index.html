@@ -114,7 +114,9 @@
               </div>
               <div style="padding:2.5%;width:37%;max-width:37%;vertical-align:top;margin-top:-15px;">
                 <a href="images/profile_picture-ishita_new.jpg">
-                  <img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/profile_picture-ishita_new.jpg" class="hoverZoomLink">
+                  <div class="profile-picture-wrapper">
+                    <img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/profile_picture-ishita_new.jpg" class="hoverZoomLink">
+                  </div>
                 </a>
               </div>
             </div>
@@ -219,80 +221,138 @@
             </tr>
           </tbody></table>
           
-          <table style="width:100%;border:0px;border-spacing:0px 5px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <div class="timeline-wrapper">
             
-            <tr class="experience-row">
-              <td style="padding:12px;width:35%;vertical-align:middle">
-                <img src='images/nissan-logo.png' width="160" height="90" alt="Nissan NATC-SV Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-              </td>
-              <td style="padding:8px;width:65%;vertical-align:middle">
-                <div class="experience-header">
-                  <strong><a href="https://www.nissan-global.com/EN/INNOVATION/TECHNOLOGY/ADVANCED_TECH_CENTER/" target="_blank">Nissan Advanced Technology Center - Silicon Valley</a></strong>
-                  <span class="experience-time">May 2025 - August 2025</span>
+            <div class="timeline-item-exp">
+              <div class="timeline-dot-exp"></div>
+              <div class="timeline-line-exp"></div>
+              <div class="timeline-content-exp">
+                <div style="display:flex; gap:20px; align-items:flex-start;">
+                  <img src='images/nissan-logo.png' width="120" height="70" alt="Nissan NATC-SV Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); flex-shrink: 0;">
+                  <div style="flex:1;">
+                    <div class="experience-header">
+                      <strong><a href="https://www.nissan-global.com/EN/INNOVATION/TECHNOLOGY/ADVANCED_TECH_CENTER/" target="_blank">Nissan Advanced Technology Center - Silicon Valley</a></strong>
+                      <span class="experience-time">May 2025 - Aug 2025</span>
+                    </div>
+                    <em>Robotics Research Intern</em>
+                    <div class="experience-subtitle">Humanoid Robotics Team</div>
+                    
+                    <p style="margin-top:12px;margin-bottom:10px;font-size:13px;line-height:1.6;">
+                      <strong>Focus:</strong> Developing autonomous manipulation and locomotion for Unitree G1 humanoid robot in manufacturing logistics
+                    </p>
+                    
+                    <div style="margin-top:10px;margin-bottom:12px;">
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">PyTorch</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">Diffusion Models</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">VLA</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">PPO/RL</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">ROS</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">Computer Vision</span>
+                    </div>
+                    
+                    <div class="experience-toggle">
+                      <a href="#" onclick="toggleExperience('nissan'); return false;" id="nissan-toggle">View Details</a>
+                    </div>
+                    <div id="nissan-details" class="experience-details" style="display:none;">
+                      <strong>Key Contributions:</strong><br>
+                      <ul style="margin-top:8px;margin-bottom:0;padding-left:20px;line-height:1.8;">
+                        <li><strong>3D Diffusion Policy:</strong> Implemented RGB image-based and 3D diffusion policy for manipulation tasks using Dex3 3-finger gripper</li>
+                        <li><strong>Vision-Language-Action Model:</strong> Fine-tuned NVIDIA Groot VLA N1.5 for Unitree G1 using in-house dataset (Apple Vision Pro)</li>
+                        <li><strong>Reinforcement Learning:</strong> Trained PPO-based policy for loco-manipulation enabling locomotion while carrying objects, squatting, and bending</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <em>Robotics Research Intern</em>
-                <div class="experience-subtitle">Humanoid Robotics Team</div>
-                <div class="experience-toggle">
-                  <a href="#" onclick="toggleExperience('nissan'); return false;" id="nissan-toggle">View Details</a>
-                </div>
-                <div id="nissan-details" class="experience-details" style="display:none;">
-                  <strong>Focus:</strong><br>
-                  • Developing autonomous manipulation and locomotion capabilities for the Unitree G1 humanoid robot to solve tote logistics challenges in Nissan manufacturing facilities.
-                  
-                  <!-- Detailed contributions (work in progress):
-                  • 3D diffusion policy: Implemented 3D diffusion policy for the unitree G1 robot for manipulation tasks.
-                  • NVIDIA Groot N1.5: Fine-tuned Groot VLA N 1.5 model for a new embodiment (the unitree G1 robot) and box pick-up task.
-                  • Reinforcement Learning: Trained RL policy to enable the robot to perform locomotion while carrying objects, squatting, bending and manipulating boxes.
-                  -->
-                </div>
-              </td>
-            </tr>
+              </div>
+            </div>
 
-            <tr class="experience-row">
-              <td style="padding:12px;width:35%;vertical-align:middle">
-                <img src='images/addverb_logo.webp' width="160" height="90" alt="Addverb Technologies Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-              </td>
-              <td style="padding:8px;width:65%;vertical-align:middle">
-                <div class="experience-header">
-                  <strong><a href="https://www.addverb.com/" target="_blank">Addverb</a></strong>
-                  <span class="experience-time">January 2022 - July 2024</span>
+            <div class="timeline-item-exp">
+              <div class="timeline-dot-exp"></div>
+              <div class="timeline-line-exp"></div>
+              <div class="timeline-content-exp">
+                <div style="display:flex; gap:20px; align-items:flex-start;">
+                  <img src='images/addverb_logo.webp' width="120" height="70" alt="Addverb Technologies Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); flex-shrink: 0;">
+                  <div style="flex:1;">
+                    <div class="experience-header">
+                      <strong><a href="https://www.addverb.com/" target="_blank">Addverb Technologies</a></strong>
+                      <span class="experience-time">Jan 2022 - Jul 2024</span>
+                    </div>
+                    <em>Robotics Software Engineer</em>
+                    <div class="experience-subtitle">Advanced Robotics & Industrial Automation</div>
+                    
+                    <p style="margin-top:12px;margin-bottom:10px;font-size:13px;line-height:1.6;">
+                      <strong>Focus:</strong> Visual SLAM, physics simulation, and multi-robot control systems for industrial automation
+                    </p>
+                    
+                    <div style="margin-top:10px;margin-bottom:12px;">
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">C++</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">Python</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">OpenCV</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">SLAM</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">OpenGL</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">PhysX</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">ROS</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">Sensor Fusion</span>
+                    </div>
+                    
+                    <div class="experience-toggle">
+                      <a href="#" onclick="toggleExperience('addverb'); return false;" id="addverb-toggle">View Details</a>
+                    </div>
+                    <div id="addverb-details" class="experience-details" style="display:none;">
+                      <strong>Key Contributions:</strong><br>
+                      <ul style="margin-top:8px;margin-bottom:0;padding-left:20px;line-height:1.8;">
+                        <li><strong>Visual SLAM System:</strong> Architected complete Visual SLAM pipeline for quadruped navigation in warehouses enabling autonomous path planning and obstacle avoidance</li>
+                        <li><strong>Physics Simulator:</strong> Developed high-fidelity robotics simulator with OpenGL and NVIDIA PhysX, integrated real-time haptic feedback</li>
+                        <li><strong>Multi-Robot Control:</strong> Built unified GUI (ImGui) for 3 robotic systems (Cobot, Exoskeleton, Haptic device), streamlining operator workflow</li>
+                        <li><strong>Autonomous Navigation:</strong> Implemented sensor fusion (LiDAR + camera) for robust localization in dynamic industrial settings</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <em>Robotics Engineer</em>
-                <div class="experience-subtitle">Advanced Robotics & Industrial Automation</div>
-                <div class="experience-toggle">
-                  <a href="#" onclick="toggleExperience('addverb'); return false;" id="addverb-toggle">View Details</a>
-                </div>
-                <div id="addverb-details" class="experience-details" style="display:none;">
-                  <strong>Key Contributions:</strong><br>
-                  • <strong>VSLAM Development:</strong> Built complete Visual SLAM system for quadruped robots using C++ and OpenCV<br>
-                  • <strong>Simulator Engineering:</strong> Developed robotics simulator with OpenGL and NVIDIA PhysX, integrated haptic feedback<br>
-                  • <strong>Multi-Robot Applications:</strong> Created GUI for 3 robotic systems (Cobot, Exoskeleton, Haptic device) using ImGui
-                </div>
-              </td>
-            </tr>
+              </div>
+            </div>
 
-            <tr class="experience-row">
-              <td style="padding:12px;width:35%;vertical-align:middle">
-                <img src='images/Google_logo.png' width="160" height="90" alt="Google Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-              </td>
-              <td style="padding:8px;width:65%;vertical-align:middle">
-                <div class="experience-header">
-                  <strong><a href="https://www.google.com/" target="_blank">Google</a></strong>
-                  <span class="experience-time">May 2021 - August 2021</span>
+            <div class="timeline-item-exp">
+              <div class="timeline-dot-exp"></div>
+              <div class="timeline-content-exp">
+                <div style="display:flex; gap:20px; align-items:flex-start;">
+                  <img src='images/Google_logo.png' width="120" height="70" alt="Google Logo" style="padding: 8px; border-radius: 8px; object-fit: contain; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); flex-shrink: 0;">
+                  <div style="flex:1;">
+                    <div class="experience-header">
+                      <strong><a href="https://www.google.com/" target="_blank">Google</a></strong>
+                      <span class="experience-time">May 2021 - Aug 2021</span>
+                    </div>
+                    <em>Software Engineering Intern</em>
+                    <div class="experience-subtitle">Nest Devices · Cloud Infrastructure</div>
+                    
+                    <p style="margin-top:12px;margin-bottom:10px;font-size:13px;line-height:1.6;">
+                      <strong>Focus:</strong> Cloud deployment automation and code generation infrastructure for Nest device services
+                    </p>
+                    
+                    <div style="margin-top:10px;margin-bottom:12px;">
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">Python</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">Go</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">Bash</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">Cloud Infrastructure</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">DevOps</span>
+                      <span style="background-color:var(--highlight-bg);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:6px;display:inline-block;margin-bottom:6px;">Automation</span>
+                    </div>
+                    
+                    <div class="experience-toggle">
+                      <a href="#" onclick="toggleExperience('google'); return false;" id="google-toggle">View Details</a>
+                    </div>
+                    <div id="google-details" class="experience-details" style="display:none;">
+                      <strong>Key Achievements:</strong><br>
+                      <ul style="margin-top:8px;margin-bottom:0;padding-left:20px;line-height:1.8;">
+                        <li><strong>Pipeline Automation:</strong> Automated backend cloud deployment pipeline, reducing 4-month manual task (4-5 engineers) to a single Bash script</li>
+                        <li><strong>Code Generation:</strong> Built infrastructure that automatically generates 1,000+ lines of production code across 150 files for new service deployments</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <em>Software Engineering Intern</em>
-                <div class="experience-subtitle">Nest Devices, Cloud Infrastructure</div>
-                <div class="experience-toggle">
-                  <a href="#" onclick="toggleExperience('google'); return false;" id="google-toggle">View Details</a>
-                </div>
-                <div id="google-details" class="experience-details" style="display:none;">
-                  <strong>Key Achievement:</strong><br>
-                  • <strong>Infrastructure Automation:</strong> Automated backend cloud pipeline, reducing 4-month task by 4-5 engineers to a single Bash script<br>
-                  • <strong>Onboarding System:</strong> Built end-to-end infrastructure generating 1,000+ lines of code across 150 files using Python, JSON, Go, Bash
-                </div>
-              </td>
-            </tr>
-          </tbody></table>
+              </div>
+            </div>
+          </div>
           
           <div style="height: 20px;"></div>
 
@@ -301,7 +361,7 @@
             <tbody>
               <tr class="experience-row">
                 <td>
-                  <h2>Projects</h2>
+                  <h2>Projects & Research</h2>
                 </td>
               </tr>
             </tbody>
@@ -337,7 +397,7 @@
                 </td>
               </tr>
 
-              <!-- Project 3: LLM Self-Correction -->
+              <!-- Project 2: LLM Self-Correction -->
               <tr style="background-color: var(--highlight-bg);">
                 <td style="padding:20px; width:45%; vertical-align:top;">
                   <img src="images/idl-project-img.png" width="100%" alt="LLM Self-Correction Project">
@@ -349,28 +409,82 @@
                   <br>
                   <em>CMU</em>, Fall 2024<br><br>
                   <a href="https://drive.google.com/file/d/13LuLqWW-G2UWbvJmGBN1NtVgKuoc1x2u/view">project report</a>
-                  <!-- /
-                  <a href="#">code</a> -->
                   <p>
-                    Led benchmarking of self-correction in LLMs, evaluating performance across Llama 3.2 1B, Llama 3.1 8B, and Mathstral 7B on MATH dataset. Achieved accuracy rates of up to 41.8%, identifying high Correct-to-Incorrect rates (46.9%) and low Incorrect-to-Correct rate improvements (3.78%). Engineered a multi-turn reinforcement learning framework (SCoRe) for fine-tuning.
+                    Benchmarked self-correction capabilities across Llama 3.2 1B, Llama 3.1 8B, and Mathstral 7B on the MATH dataset, achieving 41.8% accuracy. Implemented the proposed multi-turn reinforcement learning framework (SCoRe) for fine-tuning LLMs to improve self-correction.
                   </p>
                 </td>
               </tr>
 
-              <!-- Project 2: Deepfake Detection -->
+              <!-- Project 3: CMU VLA Challenge -->
+              <tr style="background-color: var(--highlight-bg);">
+                <td style="padding:20px; width:45%; vertical-align:top;">
+                  <img src="images/vla-challenge.png" width="100%" alt="CMU VLA Challenge Project">
+                </td>
+                <td style="padding:20px; width:45%; vertical-align:top;">
+                  <a href="https://www.ai-meets-autonomy.com/cmu-vla-challenge">
+                    <span class="papertitle">CMU Vision-Language-Action Challenge: Embodied Reasoning System</span>
+                  </a>
+                  <br>
+                  <em>CMU VLA Challenge (3rd Place)</em>, Fall 2025<br><br>
+                  <a href="https://www.ai-meets-autonomy.com/cmu-vla-challenge#h.tx9eukqep4hb">problem</a>
+                  /
+                  <a href="#">code</a>
+                  <p>
+                    Built a Vision-Language Navigation (VLN) system that answered natural language queries by combining Gemini 2.5 Pro embodied reasoning with a custom ROS state machine. The system produced numerical answers, object references, or waypoint plans under a strict 10-minute limit.
+                  </p>
+                  <div class="experience-toggle">
+                    <a href="#" onclick="toggleExperience('vla'); return false;" id="vla-toggle">View Details</a>
+                  </div>
+                  <div id="vla-details" class="experience-details" style="display:none;">
+                    <strong>Key Contributions:</strong><br>
+                    • <strong>Natural Language Understanding:</strong> Leveraged Gemini 2.5 Pro to classify and intelligently reason over spatial relations (e.g., "closest to the window"), enabling complex query understanding<br>
+                    • <strong>State Machine Architecture:</strong> Designed a ROS state machine to coordinate exploration, mapping, and answering with dynamic transitions for efficient task execution<br>
+                    • <strong>Deployment Ready:</strong> Deployed the complete system on a real robot through clean Docker containerization, achieving 3rd place in the challenge<br>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Project 4: Human-Robot Fencing -->
+              <tr style="background-color: var(--highlight-bg);">
+                <td style="padding:20px; width:45%; vertical-align:top;">
+                  <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+                    <img src="images/fencing.png" width="100%" alt="Project Yoriichi">
+                    <!-- <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:4px;" 
+                            src="https://www.youtube.com/embed/_Mv0bhLafOk" 
+                            title="Human-Robot Fencing" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe> -->
+                  </div>
+                </td>
+                <td style="padding:20px; width:45%; vertical-align:top;">
+                  <a href="https://www.youtube.com/watch?v=_Mv0bhLafOk">
+                    <span class="papertitle">Project Yoriichi: Real-Time Motion Tracking and Imitation Learning for Robotic Fencing</span>
+                  </a>
+                  <br>
+                  <em>CMU Robot Autonomy Course Project</em>, Spring 2025<br><br>
+                  <a href="https://www.youtube.com/watch?v=_Mv0bhLafOk">video demo</a>
+                  <p>
+                    Developed a full-stack motion tracking and imitation learning system enabling a Franka Emika Panda robot to dynamically track and mimic human sword motion. Integrated YOLOv8 for real-time object segmentation with HSV thresholding for pose detection, transforming sword trajectories into the world frame to continuously update the robot's pose for motion imitation.
+                  </p>
+                </td>
+              </tr>
+
+              <!-- Project 5: Deepfake Detection -->
               <tr>
                 <td style="padding:20px; width:45%; vertical-align:top;">
                   <div class="slideshow-container">
                     <div class="slideshow">
-                      <img src="images/Project 3x3 Template (1).png" class="slide active" alt="Deepfake Detection Slide 1">
-                      <img src="images/deepfake_slide2.png" class="slide" alt="Deepfake Detection Slide 2">
+                      <img src="images/genai_proj.png" class="slide active" alt="Deepfake Detection Slide 1">
+                      <!-- <img src="images/deepfake_slide2.png" class="slide" alt="Deepfake Detection Slide 2">
                       <img src="images/Project 3x3 Template (2).png" class="slide" alt="Deepfake Detection Slide 3">
                       <img src="images/Project 3x3 Template (3).png" class="slide" alt="Deepfake Detection Slide 4">
                       <img src="images/Project 3x3 Template (4).png" class="slide" alt="Deepfake Detection Slide 5">
                       <img src="images/Project 3x3 Template (5).png" class="slide" alt="Deepfake Detection Slide 6">
-                      <img src="images/deepfake_slide7.png" class="slide" alt="Deepfake Detection Slide 7">
+                      <img src="images/deepfake_slide7.png" class="slide" alt="Deepfake Detection Slide 7"> -->
                     </div>
-                    <div class="slideshow-dots">
+                    <!-- <div class="slideshow-dots">
                       <span class="dot active" onclick="currentSlide(1)"></span>
                       <span class="dot" onclick="currentSlide(2)"></span>
                       <span class="dot" onclick="currentSlide(3)"></span>
@@ -378,11 +492,11 @@
                       <span class="dot" onclick="currentSlide(5)"></span>
                       <span class="dot" onclick="currentSlide(6)"></span>
                       <span class="dot" onclick="currentSlide(7)"></span>
-                    </div>
+                    </div> -->
                   </div>
                   <script type="text/javascript">
                     let slideIndex = 0;
-                    showSlides();
+                    // showSlides();
 
                     function showSlides() {
                       let i;
@@ -416,54 +530,92 @@
                   <br>
                   <em>CMU </em>, Spring 2024<br><br>
                   <a href="https://drive.google.com/file/d/1Jy5OCdsznnzjH0dJPYrAUMNyVtGbqOpf/view?usp=sharing">project report</a>
-                  <!-- /
-                  <a href="#">code</a> -->
-                  <!-- / -->
-                  <!-- <a href="images/deepfake_poster_full.jpg" target="_blank">poster</a> -->
                   <p>
-                    <!-- Engineered a Vision Temporal Transformer model from scratch to detect complex lip-syncing deepfakes by analyzing temporal inconsistencies in mouth movements. The model leverages attention mechanisms to capture both spatial and temporal relationships in video sequences, achieving improved accuracy in identifying synthetic media. -->
-                    <!-- Re-implemented the LIPINC-V2 Vision Temporal Transformer to detect deepfakes by analyzing spatio-temporal video data. I validated the from-scratch model by reproducing the paper's <strong>0.98 AP</strong> SOTA results. To address data gaps, I engineered a new 2,300-sample dataset, which revealed a critical generalization gap: a simple CNN-LSTM baseline (94.9% Acc) significantly outperformed the SOTA transformer, providing deep insight into dataset bias. -->
-                    Re-implemented the LIPINC-V2 Vision Temporal Transformer, a SOTA architecture for detecting deepfakes by analyzing spatio-temporal video. I first validated my from-scratch model by reproducing the paper's 0.98 AP results on the LipSyncTIMIT benchmark. To expand the project, I then engineered a custom data generation pipeline, creating a new 2,300-sample dataset. On this new dataset, I established a strong CNN-LSTM baseline model, achieving 94.9% accuracy.
-                  </p>
-                </td>
-              </tr>
-
-              
-              <!-- Project 4: Music Segmentation (Highlighted) -->
-              <tr>
-                <td style="padding:20px; width:45%; vertical-align:top;">
-                  <img src="images/music-segmentation.png" width="100%" alt="Music Segmentation Project">
-                </td>
-                <td style="padding:20px; width:45%; vertical-align:top;">
-                  <a href="#">
-                    <span class="papertitle">Indian Classical Music Segmentation Using Machine Learning</span>
-                  </a>
-                  <br>
-                  <em>LNMIIT B.Tech Project</em>, Spring 2021 - Spring 2022<br>
-                  <em>Advised by <a href="https://sakthibalan.in/" target="_blank">Prof. Dr. Sakthi Balan</a></em>
-                  <br><br>
-                  <a href="#">project page</a>
-                  <p>
-                    Developed an onset detection technique to isolate the Percussion Solo section in concert audio, applying clustering algorithms (K-means, DBSCAN) using audio processing libraries.
+                    Re-implemented the LIPINC-V2 Vision Temporal Transformer for deepfake detection, validating it by reproducing the paper's 0.98 AP on LipSyncTIMIT. Engineered a custom 2,300-sample dataset and established a CNN-LSTM baseline achieving 94.9% accuracy, revealing critical insights into dataset bias and model generalization.
                   </p>
                 </td>
               </tr>
               
             </tbody>
           </table>
+
+          <!-- Selected Course Projects Section -->
+          <!-- COMMENTED OUT FOR NOW
+          <table id="course-projects" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;">
+            <tbody>
+              <tr>
+                <td>
+                  <h2>Selected Course Projects</h2>
+                  <p style="opacity:0.8;font-size:14px;margin-top:8px;">
+                    From-scratch implementations demonstrating deep understanding of ML/DL fundamentals
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
           
-          <!-- Archive Projects Link -->
-          <div style="text-align: right; margin: 10px 0; padding-right: 20px;">
-            <a href="projects.html" style="
-              color: var(--text-color);
-              opacity: 0.7;
-              font-size: 13px;
-              text-decoration: none;
-              transition: opacity 0.3s ease;
-            " onmouseover="this.style.opacity='1';" onmouseout="this.style.opacity='0.7';">
-              archive projects →
-            </a>
-          </div>
+          <table style="width:100%; border:0; border-spacing:0px 10px; border-collapse:separate; margin:0 auto;">
+            <tbody>
+              
+              <tr class="experience-row">
+                <td style="padding:12px; width:25%; vertical-align:middle;">
+                  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; padding: 30px; display: flex; align-items: center; justify-content: center; height: 100px;">
+                    <span style="color: white; font-size: 24px; font-weight: bold;">MyTorch</span>
+                  </div>
+                </td>
+                <td style="padding:12px; width:75%; vertical-align:middle;">
+                  <span class="papertitle">MyTorch: Deep Learning Framework from Scratch</span>
+                  <br>
+                  <em>11-785: Introduction to Deep Learning</em>, Fall 2024
+                  <br>
+                  <a href="#">code (available upon request)</a>
+                  <p style="margin-top:8px;font-size:13px;">
+                    Built a complete PyTorch-like deep learning library from first principles, implementing automatic differentiation engine, neural network primitives (Conv2D, RNN, LSTM, GRU, BatchNorm), optimizers (SGD, Adam, RMSprop), and training utilities. Validated correctness by achieving bit-exact parity with PyTorch on standard benchmarks.
+                  </p>
+                </td>
+              </tr>
+
+              <tr class="experience-row">
+                <td style="padding:12px; width:25%; vertical-align:middle;">
+                  <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 8px; padding: 30px; display: flex; align-items: center; justify-content: center; height: 100px;">
+                    <span style="color: white; font-size: 24px; font-weight: bold;">🎙️ ASR</span>
+                  </div>
+                </td>
+                <td style="padding:12px; width:75%; vertical-align:middle;">
+                  <span class="papertitle">Automatic Speech Recognition System</span>
+                  <br>
+                  <em>11-785: Introduction to Deep Learning</em>, Fall 2024
+                  <br>
+                  <a href="#">code (available upon request)</a>
+                  <p style="margin-top:8px;font-size:13px;">
+                    Implemented end-to-end speech recognition system with Listen-Attend-Spell architecture from scratch. Built custom data pipeline with audio preprocessing, attention mechanisms (multi-head, additive), and beam search decoder. Achieved competitive performance on LibriSpeech benchmark through extensive hyperparameter tuning and architecture optimization.
+                  </p>
+                </td>
+              </tr>
+
+              <tr class="experience-row">
+                <td style="padding:12px; width:25%; vertical-align:middle;">
+                  <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 8px; padding: 30px; display: flex; align-items: center; justify-content: center; height: 100px;">
+                    <span style="color: white; font-size: 24px; font-weight: bold;">GenAI</span>
+                  </div>
+                </td>
+                <td style="padding:12px; width:75%; vertical-align:middle;">
+                  <span class="papertitle">Generative AI Foundations: GPT, LoRA, PEFT, Diffusion</span>
+                  <br>
+                  <em>10-623: Generative AI</em>, Fall 2024
+                  <br>
+                  <a href="#">code (available upon request)</a>
+                  <p style="margin-top:8px;font-size:13px;">
+                    From-scratch implementations of modern generative models including GPT (transformer decoder with causal attention), LoRA & PEFT for parameter-efficient fine-tuning, and Diffusion models (DDPM/DDIM) for image generation. Implemented training pipelines, sampling strategies, and validated against reference implementations on standard benchmarks.
+                  </p>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <div style="height: 20px;"></div>
+          END COMMENT -->
 
           <!-- Education Section -->
           <table id="education" style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:10px 16px;"><tbody>
@@ -537,12 +689,12 @@
           </tbody></table>
 
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr class="experience-row">
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:right;font-size:small;">
-                  cloned from <a href="https://github.com/jonbarron/jonbarron_website">here!</a>
+          <!-- Footer -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:40px;"><tbody>
+            <tr>
+              <td style="padding:20px;border-top:1px solid var(--border-color);">
+                <p style="text-align:center;font-size:small;margin:0;color:var(--text-color);opacity:0.6;">
+                  © 2025 Ishita Gupta · Template from <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron</a>
                 </p>
               </td>
             </tr>

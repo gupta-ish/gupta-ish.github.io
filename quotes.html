@@ -99,14 +99,18 @@
       }
       
       .quote-container {
-        padding: 20px 0;
-        margin: 15px 0;
+        padding: 20px;
+        margin: 20px 0;
+        border-left: 3px solid transparent;
         border-bottom: 1px solid var(--border-color);
+        border-radius: 4px;
         transition: all 0.3s ease;
       }
       
       .quote-container:hover {
-        border-bottom-color: var(--link-color);
+        border-left-color: #3b82f6;
+        background-color: var(--quote-bg);
+        padding-left: 24px;
       }
       
       .quote-container:last-child {
@@ -114,15 +118,27 @@
       }
       
       .quote-text {
-        font-size: 16px;
+        font-size: 17px;
         font-style: italic;
         color: var(--text-color);
-        line-height: 1.6;
+        line-height: 1.7;
         margin-bottom: 12px;
       }
       
+      .quote-text::before {
+        content: '"';
+        opacity: 0.3;
+        margin-right: 4px;
+      }
+      
+      .quote-text::after {
+        content: '"';
+        opacity: 0.3;
+        margin-left: 4px;
+      }
+      
       .quote-author {
-        font-size: 13px;
+        font-size: 14px;
         color: var(--text-color);
         opacity: 0.7;
         text-align: right;
@@ -237,6 +253,13 @@
             <div class="quote-author">— Albus Dumbledore</div>
           </div>
           
+          <!-- <div class="quote-container">
+            <div class="quote-text">
+              "The science of today is the technology of tomorrow."
+            </div>
+            <div class="quote-author">— Edward Teller</div>
+          </div>
+           -->
 
           
           <div class="back-link">
