@@ -958,6 +958,38 @@ p:last-child {
   margin-bottom: 0;
 }
 
+/* Affiliation logo strip */
+.affiliation-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 10px 0 4px 0;
+}
+
+.affiliation-label {
+  font-size: 13px;
+  color: var(--text-color);
+  opacity: 0.5;
+  font-style: italic;
+  margin-right: 4px;
+}
+
+.affiliation-logos a {
+  display: inline-block;
+}
+
+.affiliation-logos img {
+  height: 28px;
+  width: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.affiliation-logos img:hover {
+  opacity: 1;
+}
+
 /* Global reset for images */
 img {
   max-width: none !important;
